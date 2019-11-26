@@ -1,6 +1,6 @@
 .card-product-profile {
   overflow: hidden;
-  height: 120px;
+  min-height: 120px;
   width: 860px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);

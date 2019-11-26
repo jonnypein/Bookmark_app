@@ -1,2 +1,28 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+  <br>
+  <h1 align="center" style = "font-weight: 500; color: rgb(205, 206, 200);">Trends</h1>
+  <br>
+  <br>
+  <h2 style="margin-left: 202px; font-weight: 500; color: rgb(205, 206, 200)">Movies</h2>
+
+
+<ul class="items">
+  <% @movies.each do |movie| %>
+    <li>
+
+      <div class="bg-img" style="background-image: url(<%= movie.picture_url %>);"></div>
+      <%= link_to movie_path(movie) do %>
+        <div class="content">
+          <h2><%= movie.title %></h2>
+        </div>
+      <% end %>
+    </li>
+  <% end %>
+
+
+</ul>
+
+
+
+
+</div>

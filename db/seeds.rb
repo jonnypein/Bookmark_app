@@ -15,7 +15,7 @@ user1 = User.create(email: "test123@test.com", password: "123456", first_name: "
 user2 = User.create(email: "test1234@test.com", password: "123456", first_name: "Elanor", last_name: "Hebard", bio: 'this is a bio')
 user3 = User.create(email: "test12345@test.com", password: "123456", first_name: "Kelly", last_name: "Jeffery", bio: 'this is an other bio')
 
-# movie = "comedys"
+# movie = "comedy
 # url = "https://www.netflix.com/browse=#{comedy}"
 
 

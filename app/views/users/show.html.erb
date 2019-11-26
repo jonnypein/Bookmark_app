@@ -22,7 +22,7 @@
 
 <div class="container_reco">
 
-<% @user.recommendations.each do |recommendation| %>
+  <% @user.recommendations.each do |recommendation| %>
    <ul>
     <div class="card-product-profile">
     <img src="<%=recommendation.movie.picture_url%>" />
@@ -31,12 +31,10 @@
     <p><%= recommendation.movie.description %></p>
     <p class="Movie_icone"> IMDB NETFLIX AMAZON PRIME</p>
   </ul>
-  <% end %>
-</div>
+ <% end %>
 
 
 </div>
-
 
 
 

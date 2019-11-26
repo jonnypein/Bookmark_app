@@ -1,4 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
+  # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
 # Examples:
@@ -8,11 +8,30 @@
 Movie.destroy_all
 Recommendation.destroy_all
 User.destroy_all
+require 'open-uri'
+require 'nokogiri'
 
 
 user1 = User.create(email: "test123@test.com", password: "123456", first_name: "Jonny", last_name: "Pein")
 user2 = User.create(email: "test1234@test.com", password: "123456", first_name: "Elanor", last_name: "Hebard")
 user3 = User.create(email: "test12345@test.com", password: "123456", first_name: "Kelly", last_name: "Jeffery")
+
+
+
+# movie = "comedys"
+# url = "https://www.netflix.com/browse=#{comedy}"
+
+
+# html_file = open(url).read
+# html_doc = Nokogiri::HTML(html_file)
+
+
+
+# html_doc.search('title').each do |element|
+
+#   puts element.text.strip
+#   puts element.attribute('href').value
+# end
 
 movie1 = Movie.create(title: 'Pulp Fiction', description:"The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.
 ", picture_url:"https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,686,1000_AL_.jpg", genre:"Crime", year:"1994")
@@ -33,3 +52,4 @@ recommendation3 = Recommendation.create(user_id: user1.id, movie_id: movie3.id)
 recommendation4 = Recommendation.create(user_id: user2.id, movie_id: movie4.id)
 recommendation5 = Recommendation.create(user_id: user2.id, movie_id: movie5.id)
 recommendation5 = Recommendation.create(user_id: user2.id, movie_id: movie6.id)
+

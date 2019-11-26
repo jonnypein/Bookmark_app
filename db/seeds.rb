@@ -11,12 +11,9 @@ User.destroy_all
 require 'open-uri'
 require 'nokogiri'
 
-
-user1 = User.create(email: "test123@test.com", password: "123456", first_name: "Jonny", last_name: "Pein")
-user2 = User.create(email: "test1234@test.com", password: "123456", first_name: "Elanor", last_name: "Hebard")
-user3 = User.create(email: "test12345@test.com", password: "123456", first_name: "Kelly", last_name: "Jeffery")
-
-
+user1 = User.create(email: "test123@test.com", password: "123456", first_name: "Jonny", last_name: "Pein", bio: 'No pain, no gain')
+user2 = User.create(email: "test1234@test.com", password: "123456", first_name: "Elanor", last_name: "Hebard", bio: 'this is a bio')
+user3 = User.create(email: "test12345@test.com", password: "123456", first_name: "Kelly", last_name: "Jeffery", bio: 'this is an other bio')
 
 # movie = "comedys"
 # url = "https://www.netflix.com/browse=#{comedy}"
@@ -34,11 +31,11 @@ user3 = User.create(email: "test12345@test.com", password: "123456", first_name:
 # end
 
 movie1 = Movie.create(title: 'Pulp Fiction', description:"The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.
-", picture_url:"https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,686,1000_AL_.jpg", genre:"Crime", year:"1994")
+", picture_url:"https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg", genre:"Crime", year:"1994")
 movie2 = Movie.create(title: 'Fight Club', description:"An insomniac office worker and a devil-may-care soapmaker form an underground fight club that evolves into something much, much more.
 ", picture_url:"https://m.media-amazon.com/images/M/MV5BMmEzNTkxYjQtZTc0MC00YTVjLTg5ZTEtZWMwOWVlYzY0NWIwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,666,1000_AL_.jpg", genre:"Drama", year:"1999")
 movie3 = Movie.create(title: 'Interstellar', description:"A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.
-", picture_url:"https://www.imdb.com/title/tt0816692/mediaviewer/rm4043724800", genre:"Drama", year:"2014")
+", picture_url:"https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SY1000_SX675_AL_.jpg", genre:"Drama", year:"2014")
 movie4 = Movie.create(title: 'Gladiator', description:"A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.
 ", picture_url:"https://m.media-amazon.com/images/M/MV5BMDliMmNhNDEtODUyOS00MjNlLTgxODEtN2U3NzIxMGVkZTA1L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY1000_CR0,0,675,1000_AL_.jpg", genre:"Drama", year:"2000")
 movie5 = Movie.create(title: 'Memento', description:"A man with short-term memory loss attempts to track down his wife's murderer.
@@ -48,8 +45,12 @@ movie6 = Movie.create(title: 'Joker', description:"In Gotham City, mentally trou
 
 recommendation1 = Recommendation.create(user_id: user1.id, movie_id: movie1.id)
 recommendation2 = Recommendation.create(user_id: user1.id, movie_id: movie2.id)
-recommendation3 = Recommendation.create(user_id: user1.id, movie_id: movie3.id)
+recommendation3 = Recommendation.create(user_id: user1.id, movie_id: movie4.id)
 recommendation4 = Recommendation.create(user_id: user2.id, movie_id: movie4.id)
 recommendation5 = Recommendation.create(user_id: user2.id, movie_id: movie5.id)
-recommendation5 = Recommendation.create(user_id: user2.id, movie_id: movie6.id)
+recommendation6 = Recommendation.create(user_id: user2.id, movie_id: movie6.id)
+recommendation7 = Recommendation.create(user_id: user3.id, movie_id: movie1.id)
+recommendation8 = Recommendation.create(user_id: user3.id, movie_id: movie2.id)
+recommendation9 = Recommendation.create(user_id: user3.id, movie_id: movie6.id)
+
 

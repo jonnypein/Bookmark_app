@@ -18,7 +18,7 @@
 .card-product-profile h2 {
   font-size: 16px;
   font-weight: bold;
-  margin: 5;
+  margin: 5px;
 }
 
 .ccard-product-profile p {
@@ -40,11 +40,13 @@
 
 .container_reco {
   margin-top: 50px;
-  margin-left: 300px;
+  margin-left: 200px;
 }
 
 #follow {
   margin-top: 50px;
 }
 
-
+.Movie_icone {
+  font-size: 10px;
+}

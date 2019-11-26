@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def index
     if params[:query].present?
       @users = User.all.search_by_first_name_and_last_name(params[:query])
@@ -23,4 +22,5 @@ class UsersController < ApplicationController
     current_user.stop_following(@user)
     redirect_to user_path(@user)
   end
+=======
 end

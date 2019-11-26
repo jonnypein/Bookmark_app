@@ -10,8 +10,10 @@
        <h2 ><%= movie.title %></h2>
        <p><%= movie.description %></p>
        <p class="Movie_icone"> IMDB NETFLIX AMAZON PRIME</p>
+       <%= link_to "Add recommendation", movie_recommendations_path(movie), method: :post, class: "btn btn-primary" %>
      </div>
    </div>
 <% end %>
 
 
+   <

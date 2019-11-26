@@ -8,9 +8,13 @@ Rails.application.routes.draw do
 
   resources :recommendations, only: [:destroy, :index]
 
-  resources :users, only: [:show, :index, :edit]
+  resources :users, only: [:show, :index, :edit] do
+    member do
+      get "follow", to: "users#follow"
+      patch "unfollow", to: "users#unfollow"
+    end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
-
 
 

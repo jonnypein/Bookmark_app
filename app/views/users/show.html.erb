@@ -1,23 +1,37 @@
 
-
 <div class="container_profile">
   <div class="row">
-    <% if current_user.profile_picture.attached? %>
-        <%= cl_image_tag @user.profile_picture.key, height: 100, width: 100, crop: :fill %>
+    <% if @user.photo.attached? %>
+        <%= cl_image_tag @user.photo.key, height: 100, width: 100, crop: :fill %>
     <% else %>
         <img src="data:image/png;base64,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 "/>
     <% end %>
     <div class="col">
-      <h1 id="profile_username">Quentin Tarantino</h1>
+      <h1 id="profile_username"><%= @user.first_name %> <%= @user.last_name %></h1>
       <p id="profile_bio">My bio: Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. </p>
       <div class="row">
-        <p class="col px-md-3" class="profile_follower">Followers <strong>333</strong></p>
-        <p class="col px-md-3" class="profile_follower">Following <strong>30</strong></p>
+        <p class="col px-md-3" class="profile_follower">Followers <strong><%= @user.followers_by_type_count('User') %></strong></p>
+        <p class="col px-md-3" class="profile_follower">Following <strong><%= @user.all_follows.length %></strong></p>
       </div>
     </div>
-    <div class="col">
-      <button id="follow" class="btn btn-primary">Follow</button>
-    </div>
+    <div class="col d-flex flex-column">
+      <% if current_user.following?(@user) %>
+        <%= link_to unfollow_user_path(@user), method: :patch do %>
+        <button id="follow" class="btn btn-primary">Unfollow</button>
+        <% end %>
+      <% else %>
+         <%= link_to follow_user_path(@user) do %>
+            <button id="follow" class="btn btn-primary">Follow</button>
+          <% end %>
+      <% end %>
+      <div class='edit_profile_button'>
+        <% if @user == current_user %>
+          <%= link_to edit_user_registration_path do %>
+          <button type="button" class="btn btn-dark">Edit Profile</button>
+          <% end %>
+        <% end %>
+      </div>
+
   </div>
 </div>
 
@@ -36,7 +50,7 @@
   <% end %>
 </div>
 
-  <p><%= link_to "edit profil", edit_user_registration_path %></p>
+
 
 </div>
 

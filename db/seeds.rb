@@ -9,11 +9,10 @@ Movie.destroy_all
 Recommendation.destroy_all
 User.destroy_all
 
-user1 = User.create(email: "test123@test.com", password: "123456")
-user2 = User.create(email: "test1234@test.com", password: "123456")
-user3 = User.create(email: "test12345@test.com", password: "123456")
-user4 = User.create(email: "test123456@test.com", password: "123456")
-user5 = User.create(email: "test1234567@test.com", password: "123456")
+
+user1 = User.create(email: "test123@test.com", password: "123456", first_name: "Jonny", last_name: "Pein")
+user2 = User.create(email: "test1234@test.com", password: "123456", first_name: "Elanor", last_name: "Hebard")
+user3 = User.create(email: "test12345@test.com", password: "123456", first_name: "Kelly", last_name: "Jeffery")
 
 movie1 = Movie.create(title: 'Pulp Fiction', description:"The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.
 ", picture_url:"https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,686,1000_AL_.jpg", genre:"Crime", year:"1994")

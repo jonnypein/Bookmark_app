@@ -1,0 +1,16 @@
+<br>
+<br>
+<div class="container">
+  <% @users.each do |user| %>
+  <div class="friend-card d-flex justify-content-between">
+    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" class="friend-card-avatar">
+    <%= link_to "#", class: "icon" do %>
+      <i class="fas fa-plus"></i>
+    <% end %>
+    <div class="friend-information d-flex flex-column">
+      <h1> <%= user.first_name&.capitalize %> <%= user.last_name&.capitalize %> </h1>
+      <p>Bio: is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout</p>
+    </div>
+  </div>
+<br>
+<% end %>

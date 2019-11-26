@@ -8,9 +8,9 @@
 Movie.destroy_all
 User.destroy_all
 
-user1 = User.create(email: "test123@test.com", password: "123456")
-user2 = User.create(email: "test1234@test.com", password: "123456")
-user3 = User.create(email: "test12345@test.com", password: "123456")
+user1 = User.create(email: "test123@test.com", password: "123456", first_name: "Jonny", last_name: "Pein")
+user2 = User.create(email: "test1234@test.com", password: "123456", first_name: "Elanor", last_name: "Hebard")
+user3 = User.create(email: "test12345@test.com", password: "123456", first_name: "Kelly", last_name: "Jeffery")
 
 
 movie1 = Movie.create(title: 'Pulp Fiction', picture_url: 'https://www.imdb.com/title/tt0110912/mediaviewer/rm1959546112')

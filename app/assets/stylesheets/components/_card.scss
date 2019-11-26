@@ -1,0 +1,29 @@
+.friend-card {
+  width: 682px;
+  height: 134px;
+  border-bottom: solid 1.3px rgba(0,0,0,0.08);
+  margin: 0 auto;
+  position:relative;
+
+  .icon {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: black;
+  }
+
+  .friend-information{
+    margin-left: 37px;
+  }
+
+  .friend-card-avatar{
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    object-position: top;
+
+  }
+
+}
+

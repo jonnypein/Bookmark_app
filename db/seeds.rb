@@ -18,7 +18,7 @@ user3 = User.create(email: "test12345@test.com", password: "123456", first_name:
 
 
 
-# movie = "comedys"
+# movie = "comedy
 # url = "https://www.netflix.com/browse=#{comedy}"
 
 

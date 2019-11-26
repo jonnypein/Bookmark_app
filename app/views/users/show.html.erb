@@ -20,20 +20,20 @@
 
 <div class="container_reco">
 
-<% current_user.recommendations.each do |recommendation| %>
+  <% current_user.recommendations.each do |recommendation| %>
    <ul>
-    <div class="card-product-profile">
-    <img src="recommendation.movie.picture_url" />
-    <div class="card-product-infos-profile">
-    <h2 ><%= recommendation.movie.title %></h2>
-    <p><<%= recommendation.movie.description %></p>
-    <p class="Movie_icone"> IMDB NETFLIX AMAZON PRIME</p>
-  </ul>
+      <div class="card-product-profile">
+        <img src="recommendation.movie.picture_url" />
+        <div class="card-product-infos-profile">
+          <h2 ><%= recommendation.movie.title %></h2>
+          <p><%= recommendation.movie.description %></p>
+          <p class="Movie_icone"> IMDB NETFLIX AMAZON PRIME</p>
+        </div>
+      </div>
+    </ul>
   <% end %>
-</div>
 
 </div>
-
 
 
 

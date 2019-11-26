@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :movies, only: [:index, :show] do
     resources :recommendations, only: [:create]
   end
+
   resources :recommendations, only: [:destroy, :index]
 
   resources :users, only: [:show]

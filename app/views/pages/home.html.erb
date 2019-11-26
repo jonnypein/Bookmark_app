@@ -7,138 +7,19 @@
 
 
 <ul class="items">
-  <li>
-    <div class="bg-img" style="background-image: url('http://lewihussey.com/codepen-img/orangeisthenewblack.jpg');"></div>
-    <a href="#">
-      <div class="content">
-        <h2>Orange is the new black</h2>
-      </div>
-    </a>
-  </li>
+  <% @movies.each do |movie| %>
+    <li>
 
-  <li>
-    <div class="bg-img" style="background-image: url('http://lewihussey.com/codepen-img/uglybetty.jpg');"></div>
-    <a href="#">
-      <div class="content">
-        <h2>Ugly Betty</h2>
-      </div>
-    </a>
-  </li>
+      <div class="bg-img" style="background-image: url(<%= movie.picture_url %>);"></div>
+      <%= link_to movie_path(movie) do %>
+        <div class="content">
+          <h2><%= movie.title %></h2>
+        </div>
+      <% end %>
+    </li>
+  <% end %>
 
-  <li>
-    <div class="bg-img" style="background-image: url('http://lewihussey.com/codepen-img/big.jpg');"></div>
-    <a href="#">
-      <div class="content">
-        <h2>Big</h2>
-      </div>
-    </a>
-  </li>
 
-  <li>
-    <div class="bg-img" style="background-image: url('http://lewihussey.com/codepen-img/apprentice.jpg');"></div>
-    <a href="#">
-      <div class="content">
-        <h2>The Apprentice</h2>
-      </div>
-    </a>
-  </li>
-
-  <li>
-    <div class="bg-img" style="background-image: url('http://lewihussey.com/codepen-img/veep.jpg');"></div>
-    <a href="#">
-      <div class="content">
-        <h2>Veep</h2>
-      </div>
-    </a>
-  </li>
-  <li>
-    <div class="bg-img" style="background-image: url('http://lewihussey.com/codepen-img/orangeisthenewblack.jpg');"></div>
-    <a href="#">
-      <div class="content">
-        <h2>Orange is the new black</h2>
-      </div>
-    </a>
-  </li>
-
-  <li>
-    <div class="bg-img" style="background-image: url('http://lewihussey.com/codepen-img/uglybetty.jpg');"></div>
-    <a href="#">
-      <div class="content">
-        <h2>Ugly Betty</h2>
-      </div>
-    </a>
-  </li>
-
-  <li>
-    <div class="bg-img" style="background-image: url('http://lewihussey.com/codepen-img/big.jpg');"></div>
-    <a href="#">
-      <div class="content">
-        <h2>Big</h2>
-      </div>
-    </a>
-  </li>
-
-  <li>
-    <div class="bg-img" style="background-image: url('http://lewihussey.com/codepen-img/apprentice.jpg');"></div>
-    <a href="#">
-      <div class="content">
-        <h2>The Apprentice</h2>
-      </div>
-    </a>
-  </li>
-
-  <li>
-    <div class="bg-img" style="background-image: url('http://lewihussey.com/codepen-img/veep.jpg');"></div>
-    <a href="#">
-      <div class="content">
-        <h2>Veep</h2>
-      </div>
-    </a>
-  </li>
-  <li>
-    <div class="bg-img" style="background-image: url('http://lewihussey.com/codepen-img/orangeisthenewblack.jpg');"></div>
-    <a href="#">
-      <div class="content">
-        <h2>Orange is the new black</h2>
-      </div>
-    </a>
-  </li>
-
-  <li>
-    <div class="bg-img" style="background-image: url('http://lewihussey.com/codepen-img/uglybetty.jpg');"></div>
-    <a href="#">
-      <div class="content">
-        <h2>Ugly Betty</h2>
-      </div>
-    </a>
-  </li>
-
-  <li>
-    <div class="bg-img" style="background-image: url('http://lewihussey.com/codepen-img/big.jpg');"></div>
-    <a href="#">
-      <div class="content">
-        <h2>Big</h2>
-      </div>
-    </a>
-  </li>
-
-  <li>
-    <div class="bg-img" style="background-image: url('http://lewihussey.com/codepen-img/apprentice.jpg');"></div>
-    <a href="#">
-      <div class="content">
-        <h2>The Apprentice</h2>
-      </div>
-    </a>
-  </li>
-
-  <li>
-    <div class="bg-img" style="background-image: url('http://lewihussey.com/codepen-img/veep.jpg');"></div>
-    <a href="#">
-      <div class="content">
-        <h2>Veep</h2>
-      </div>
-    </a>
-  </li>
 </ul>
 
 

@@ -1,17 +1,32 @@
+
+<% unless params[:query].present? %>
+  <h1>This is everyone using Bookmark!</h1>
+<% end %>
+<% if params[:query].present? %>
+  <h1 style="margin-left:74px";>Theses are the search results for "<%= params[:query]%>"</h1>
+<% end %>
 <br>
 <br>
 <div class="container">
   <% @users.each do |user| %>
-    <div class="friend-card d-flex justify-content-between">
-      <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" class="friend-card-avatar">
-      <%= link_to "#", class: "icon" do %>
-        <i class="fas fa-plus"></i>
+  <div class="friend-card d-flex justify-content-between">
+    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" class="friend-card-avatar">
+     <% if current_user.following?(user) %>
+      <%= link_to unfollow_user_path(user), method: :patch do %>
+         <i class="fas fa-minus icon"></i>
+          <% end %>
+    <% else %>
+      <%= link_to follow_user_path(user) do %>
+          <i class="fas fa-plus icon"></i>
+        <% end %>
       <% end %>
-      <div class="friend-information d-flex flex-column">
-        <h1> <%= user.first_name&.capitalize %> <%= user.last_name&.capitalize %> </h1>
-        <p>Bio: is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout</p>
-      </div>
-     </div>
-      <% end %>
-</div>
+    <div class="friend-information d-flex flex-column">
+      <h1> <%= user.first_name&.capitalize %> <%= user.last_name&.capitalize %> </h1>
+      <p>Bio: is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout</p>
+    </div>
+  </div>
+<br>
+<% end %>
+
+
 

@@ -1,6 +1,14 @@
 class MoviesController < ApplicationController
+  # def bookmarked
+  #   @movies = Movie.where
+  # end
+
   def index
-    @movies = Movie.all
+    if params[:query].present?
+      @movies = Movie.where("title ILIKE ?", "%#{params[:query]}%")
+    else
+      @movies = Movie.all
+    end
   end
 
   def show

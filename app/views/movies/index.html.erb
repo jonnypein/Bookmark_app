@@ -11,9 +11,9 @@
        <p><%= movie.description %></p>
        <p class="Movie_icone"> IMDB NETFLIX AMAZON PRIME</p>
        <%= link_to "Add recommendation", movie_recommendations_path(movie), method: :post, class: "btn btn-primary" %>
-     </div>
+       <%= link_to "bookmark", movie_bookmarks_path(movie), method: :post, class: "btn btn-primary" %>
+      </div>
    </div>
 <% end %>
 
 
-   <

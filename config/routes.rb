@@ -4,11 +4,17 @@ Rails.application.routes.draw do
 
   resources :movies, only: [:index, :show] do
     resources :recommendations, only: [:create]
+    resources :bookmarks, only: [:create]
+
   end
+
+
+  resources :bookmarks, only: [:destroy, :index]
 
   resources :recommendations, only: [:destroy, :index] do
     resources :tags
   end
+
 
   resources :users, only: [:show, :index, :edit] do
     member do

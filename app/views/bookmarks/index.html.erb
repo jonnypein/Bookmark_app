@@ -1,0 +1,16 @@
+<h1>Bookmarked</h1>
+
+<% @bookmarks.each do |bookmark| %>
+
+<div class="card-product-profile">
+     <img src="<%= bookmark.movie.picture_url %>" />
+     <div class="card-product-infos-profile">
+       <h2 ><%= bookmark.movie.title %></h2>
+       <p><%= bookmark.movie.description %></p>
+       <p><%= bookmark.movie.genre %></p>
+       <p><%= bookmark.movie.year %></p>
+       <p class="Movie_icone"> IMDB NETFLIX AMAZON PRIME</p>
+       </div>
+   </div>
+<% end %>
+

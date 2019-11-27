@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :recommendations
+  has_many :bookmarks
   has_one_attached :photo
   acts_as_followable
   acts_as_follower

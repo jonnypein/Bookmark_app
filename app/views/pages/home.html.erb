@@ -4,26 +4,9 @@
   <br>
   <br>
   <h2 style="margin-left: 202px; font-weight: 500; color: rgb(205, 206, 200)">Movies</h2>
-
-
-<ul class="items">
-  <% @movies.each do |movie| %>
-    <li>
-
-      <div class="bg-img" style="background-image: url(<%= movie.picture_url %>);"></div>
-      <!-- comment (arthur): TODO this should open a modal or just add it to list when you click on it -->
-      <%= link_to "#" do %>
-        <div class="content">
-          <h2><%= movie.title %></h2>
-        </div>
-      <% end %>
-    </li>
-  <% end %>
-
-
-</ul>
-
-
-
-
+  <div class="carousel">
+    <% @movies.each do |movie| %>
+      <%= image_tag movie.picture_url, class:'movie-picture' %>
+    <% end %>
+  </div>
 </div>

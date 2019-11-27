@@ -1,10 +1,10 @@
-  # This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or create!d alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create!([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create!(name: 'Luke', movie: movies.first)
+  This file should contain all the record creation needed to seed the database with its default values.
+The data can then be loaded with the rails db:seed command (or create!d alongside the database with db:setup).
+
+Examples:
+
+  movies = Movie.create!([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+  Character.create!(name: 'Luke', movie: movies.first)
 Movie.destroy_all
 Recommendation.destroy_all
 User.destroy_all
@@ -52,5 +52,65 @@ recommendation6 = Recommendation.create!(user_id: user2.id, movie_id: movie6.id)
 recommendation7 = Recommendation.create!(user_id: user3.id, movie_id: movie1.id)
 recommendation8 = Recommendation.create!(user_id: user3.id, movie_id: movie2.id)
 recommendation9 = Recommendation.create!(user_id: user3.id, movie_id: movie6.id)
+
+
+require "open-uri"
+require "nokogiri"
+require "pry"
+
+def fetch_movie_urls
+  top_url = "http://www.imdb.com/chart/top"
+  doc = Nokogiri::HTML(open(top_url).read)
+  movies = doc.search(".titleColumn a")
+  a = movies.take(250).map do |movie|
+    uri = URI.parse(movie.attributes["href"].value)
+    uri.scheme = "http"
+    uri.host = "www.imdb.com"
+    uri.query = nil
+    uri.to_s
+  end
+end
+
+def scrape_movie(url)
+
+  doc = Nokogiri::HTML(open(url, "Accept-Language" => "en").read)
+  m = doc.search("h1").text.match /(?<title>.*)[[:space:]]\((?<year>\d{4})\)/
+  title = m[:title]
+  year = m[:year].to_i
+  picture_url = doc.search(".poster a img").first["src"]
+  storyline = doc.search(".summary_text").text.strip
+  director = doc.search("h4:contains('Director:') + a").text
+  genre = doc.search("h4:contains('Genres:') + a").text.strip
+  cast = doc.search(".primary_photo + td a").take(3).map do |element|
+    element.text.strip
+  end
+
+  result = {
+    picture_url: picture_url,
+    title: title,
+    # cast: cast,
+    # director: director,
+    # storyline: storyline,
+    year: year,
+    genre: genre
+  }
+end
+
+movies = fetch_movie_urls
+scraped_movies = movies.map { |m| scrape_movie(m) }
+scraped_movies.each { |m| Movie.create!(m)}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

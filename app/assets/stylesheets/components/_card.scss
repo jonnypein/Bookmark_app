@@ -39,3 +39,59 @@
 
 }
 
+
+.recomendation-card{
+  border: 1px solid #C4C4C4;
+  border-radius: 22px;
+  margin-bottom: 10px;
+  padding-top: 11px;
+  padding-left: 10px;
+
+  img{
+    margin-right: 11px;
+  }
+
+  h3{
+    font-weight: bold;
+    font-size: 13px;
+  }
+  p{
+    font-size: 13px;
+    font-weight: 200;
+  }
+  .green{
+    color: #82B5A5;
+    font-weight: normal;
+    font-size: 13px;
+  }
+
+  .recommendation-card-avatar{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+  }
+}
+
+.recommendations-title-box{
+  width: 1110px;
+  height: 113px;
+  background: linear-gradient(130.62deg, #F8CF61 9.56%, #FFFFCC 92.35%);
+  border-radius: 25px;
+  margin-bottom: 25px;
+
+  h2{
+    font-weight: bold;
+    font-size: 28px;
+    color:white;
+  }
+}
+
+
+
+.tag-card{
+  background-color: rgba(255, 0, 0, 0.2);;
+  font-size: 13px;
+  margin-bottom:15px;
+  border-radius: 2px;
+  color: rgba(255, 0, 0, 0.4);
+}

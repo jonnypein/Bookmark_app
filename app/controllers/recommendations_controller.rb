@@ -1,6 +1,10 @@
 class RecommendationsController < ApplicationController
   def index
-    @recommendations = Recommendation.all.order("published_at desc")
+    @recommendations = current_user.all_follows.map do |follower|
+      follower.followable.recommendations
+    end
+      # recommendation.all.order("created_at desc")
+    @recommendations = @recommendations.flatten
   end
 
   def create

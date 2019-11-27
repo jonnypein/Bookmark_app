@@ -1,10 +1,8 @@
-  This file should contain all the record creation needed to seed the database with its default values.
-The data can then be loaded with the rails db:seed command (or create!d alongside the database with db:setup).
+#   This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the rails db:seed command (or create!d alongside the database with db:setup).
 
-Examples:
+# Examples:
 
-  movies = Movie.create!([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-  Character.create!(name: 'Luke', movie: movies.first)
 Movie.destroy_all
 Recommendation.destroy_all
 User.destroy_all
@@ -98,7 +96,10 @@ end
 
 movies = fetch_movie_urls
 scraped_movies = movies.map { |m| scrape_movie(m) }
-scraped_movies.each { |m| Movie.create!(m)}
+scraped_movies.each do |m|
+  puts "creating #{m[:title]}"
+  Movie.create!(m)
+end
 
 
 

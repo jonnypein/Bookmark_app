@@ -44,13 +44,19 @@
 <div class="container_reco">
 
   <% @user.recommendations.each do |recommendation| %>
-   <ul>
+    <ul>
     <div class="card-product-profile">
     <img src="<%=recommendation.movie.picture_url%>" />
     <div class="card-product-infos-profile">
     <h2 ><%= recommendation.movie.title %></h2>
-    <p><%= recommendation.movie.description %></p>
-    <p class="Movie_icone"> IMDB NETFLIX AMAZON PRIME</p>
+      <p><%= recommendation.movie.description %></p>
+      <p class="Movie_icone"> IMDB NETFLIX AMAZON PRIME</p>
+      <button class='add_a_tag'> <%= link_to 'Add a tag', new_recommendation_tag_path(recommendation) %> </button>
+      <button> Delete movie</button>
+        <p><%= @user.first_name %> has recommended this movie with the tags:</p>
+      <% recommendation.tags.each do |tag| %>
+        <p class='tag'><%= tag.name %></p>
+      <% end %>
   </ul>
  <% end %>
 

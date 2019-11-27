@@ -1,9 +1,8 @@
 <div class="container">
   <br>
-  <h1 align="center" style = "font-weight: 500; color: rgb(205, 206, 200);">Trends</h1>
   <br>
   <br>
-  <h2 style="margin-left: 202px; font-weight: 500; color: rgb(205, 206, 200)">Movies</h2>
+  <h2 style="margin-left: 30px; font-weight: 500; color: rgb(205, 206, 200)">Most recommended movies this month</h2>
   <div class="carousel">
     <% @movies.each do |movie| %>
       <%= image_tag movie.picture_url, class:'movie-picture' %>

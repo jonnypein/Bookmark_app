@@ -1,0 +1,5 @@
+  <h1 id='title_new_tag'>Add a new tag</h1>
+        <%= simple_form_for [@recommendation, @tag] do |f| %>
+          <%= f.input :name %>
+          <button style="margin-left: 45px; margin-bottom: 20px" type="submit" class="btn btn-secondary">Create a tag</button>
+        <% end %>

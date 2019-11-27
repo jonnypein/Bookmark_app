@@ -26,7 +26,7 @@
                 <button id="follow" class="btn btn-primary">Follow</button>
               <% end %>
           <% end %>
-          <% end %>
+        <% end %>
           <div class='edit_profile_button'>
             <% if @user == current_user %>
               <%= link_to edit_user_registration_path do %>
@@ -50,17 +50,22 @@
             <p><%= @user.first_name %> has recommended this movie with the tags:</p>
             <% recommendation.tags.each do |tag| %>
               <p class='tag'><%= tag.name %></p>
-            <% end %>
+              <% end %>
             <ul class="where-to-watch">
+              <% if recommendation.movie.imdb_url.present? %>
               <%= link_to recommendation.movie.imdb_url, target: "_blank" do %>
                 <li><i class="fab fa-imdb"></i></li>
               <% end %>
-              <% if recommendation.movie.netflix_url %>
+              <% end %>
+              <% if recommendation.movie.netflix_url.present? %>
                 <%= link_to recommendation.movie.netflix_url, target: "_blank" do %>
                 <li><img src="https://www.freepnglogos.com/uploads/netflix-logo-circle-png-5.png" alt="netflix" style="width:15px; height:15px;"></li>
+                <% end %>
               <% end %>
+              <% if recommendation.movie.amazon_url.present? %>
               <%= link_to recommendation.movie.amazon_url, target: "_blank" do %>
                 <li><i class="fab fa-amazon"></i></li>
+                <% end %>
               <% end %>
             </ul>
           </div>

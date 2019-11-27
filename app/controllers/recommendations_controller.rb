@@ -1,5 +1,6 @@
 class RecommendationsController < ApplicationController
   def index
+    @recommendations = Recommendation.all.order("published_at desc")
   end
 
   def create

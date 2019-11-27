@@ -1,0 +1,15 @@
+Searching 161 files for ".container"
+
+/Users/jonnypein/code/jonnypein/Bookmark_app/app/assets/stylesheets/pages/_user_show.scss:
+   34  }
+   35
+   36: .container_profile {
+   37    margin-top: 50px;
+   38    margin-left: 300px;
+   39  }
+   40
+   41: .container_reco {
+   42    margin-top: 50px;
+   43    margin-left: 200px;
+
+2 matches in 1 file

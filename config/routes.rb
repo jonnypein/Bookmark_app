@@ -8,9 +8,13 @@ Rails.application.routes.draw do
 
   end
 
+
   resources :bookmarks, only: [:destroy, :index]
 
-  resources :recommendations, only: [:destroy, :index]
+  resources :recommendations, only: [:destroy, :index] do
+    resources :tags
+  end
+
 
   resources :users, only: [:show, :index, :edit] do
     member do

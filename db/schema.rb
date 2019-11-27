@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_27_121530) do
+
+
+ActiveRecord::Schema.define(version: 2019_11_27_122205) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +75,9 @@ ActiveRecord::Schema.define(version: 2019_11_27_121530) do
     t.string "description"
     t.string "genre"
     t.integer "year"
+    t.string "imdb_url"
+    t.string "netflix_url"
+    t.string "amazon_url"
   end
 
   create_table "recommendations", force: :cascade do |t|
@@ -81,6 +87,12 @@ ActiveRecord::Schema.define(version: 2019_11_27_121530) do
     t.datetime "updated_at", null: false
     t.index ["movie_id"], name: "index_recommendations_on_movie_id"
     t.index ["user_id"], name: "index_recommendations_on_user_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.bigint "recommendation_id"
+    t.index ["recommendation_id"], name: "index_tags_on_recommendation_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -103,4 +115,5 @@ ActiveRecord::Schema.define(version: 2019_11_27_121530) do
   add_foreign_key "bookmarks", "users"
   add_foreign_key "recommendations", "movies"
   add_foreign_key "recommendations", "users"
+  add_foreign_key "tags", "recommendations"
 end

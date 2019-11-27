@@ -21,7 +21,7 @@
   margin: 5px;
 }
 
-.ccard-product-profile p {
+.card-product-profile p {
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
@@ -40,7 +40,7 @@
 
 .container_reco {
   margin-top: 50px;
-  margin-left: 200px;
+  margin-left: 30px;
 }
 
 #follow {
@@ -49,4 +49,13 @@
 
 .Movie_icone {
   font-size: 10px;
+}
+
+.tag {
+  background-color: blue;
+  width: 60px;
+}
+
+.tags {
+  display: flex;
 }

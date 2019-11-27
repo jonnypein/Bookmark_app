@@ -1,4 +1,4 @@
 class Movie < ApplicationRecord
-  has_many :recommmendations
-  has_many :bookmarks
+  has_many :recommendations, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
 end

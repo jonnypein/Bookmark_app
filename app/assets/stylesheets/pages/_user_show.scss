@@ -21,7 +21,7 @@
   margin: 5px;
 }
 
-.ccard-product-profile p {
+.card-product-profile p {
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
@@ -53,6 +53,14 @@
 
 .profile_pic{
   width: 100px;
-  width: 100px;
   object-fit: fill;
+}
+
+.tag {
+  background-color: blue;
+  width: 60px;
+}
+
+.tags {
+  display: flex;
 }

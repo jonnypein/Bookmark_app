@@ -37,34 +37,36 @@
        </div>
       </div>
   </div>
-
-
   <div class="container_reco">
-
     <% @user.recommendations.each do |recommendation| %>
-     <ul>
-      <div class="card-product-profile">
-        <img src="<%= recommendation.movie.picture_url%> "/>
-      <div class="card-product-infos-profile">
-        <h2 ><%= recommendation.movie.title %></h2>
-        <p><%= recommendation.movie.description %></p>
-
-        <ul class="where-to-watch">
-          <%= link_to recommendation.movie.imdb_url, target: "_blank" do %>
-            <li><i class="fab fa-imdb"></i></li>
+      <ul>
+        <div class="card-product-profile">
+          <img src="<%= recommendation.movie.picture_url%> "/>
+          <div class="card-product-infos-profile">
+            <h2 ><%= recommendation.movie.title %></h2>
+            <p><%= recommendation.movie.description %></p>
+            <button class='add_a_tag'> <%= link_to 'Add a tag', new_recommendation_tag_path(recommendation) %> </button>
+            <button> Delete movie</button>
+            <p><%= @user.first_name %> has recommended this movie with the tags:</p>
+            <% recommendation.tags.each do |tag| %>
+              <p class='tag'><%= tag.name %></p>
             <% end %>
-            <% if recommendation.movie.netflix_url %>
-          <%= link_to recommendation.movie.netflix_url, target: "_blank" do %>
-            <li><img src="https://www.freepnglogos.com/uploads/netflix-logo-circle-png-5.png" alt="netflix" style="width:15px; height:15px;"></li>
-            <% end %>
-          <%= link_to recommendation.movie.amazon_url, target: "_blank" do %>
-            <li><i class="fab fa-amazon"></i></li>
-            <% end %>
-        </ul>
+            <ul class="where-to-watch">
+              <%= link_to recommendation.movie.imdb_url, target: "_blank" do %>
+                <li><i class="fab fa-imdb"></i></li>
+              <% end %>
+              <% if recommendation.movie.netflix_url %>
+                <%= link_to recommendation.movie.netflix_url, target: "_blank" do %>
+                <li><img src="https://www.freepnglogos.com/uploads/netflix-logo-circle-png-5.png" alt="netflix" style="width:15px; height:15px;"></li>
+              <% end %>
+              <%= link_to recommendation.movie.amazon_url, target: "_blank" do %>
+                <li><i class="fab fa-amazon"></i></li>
+              <% end %>
+            </ul>
+          </div>
         </div>
-        </ul>
+      </ul>
     <% end %>
-
   </div>
 </div>
 

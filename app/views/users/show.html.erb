@@ -38,6 +38,20 @@
       </div>
   </div>
   <div class="container_reco">
+      <div class="row mx-md-n2">
+        <p class="col px-md-2">Recommendations</p>
+        <p class="col px-md-2">Bookmarks</p>
+      </div>
+      <div id='search_profile'>
+        <%= form_tag movies_path, method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a movie"
+        %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+      </div>
+    <% end %>
     <% @user.recommendations.each do |recommendation| %>
       <ul>
         <div class="card-product-profile">
@@ -75,14 +89,7 @@
   </div>
 </div>
 
-<%= form_tag movies_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a movie"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
+
 
 
 

@@ -55,7 +55,7 @@
               <% if recommendation.movie.imdb_url.present? %>
               <%= link_to recommendation.movie.imdb_url, target: "_blank" do %>
                 <li><i class="fab fa-imdb"></i></li>
-              <% end %>
+                <% end %>
               <% end %>
               <% if recommendation.movie.netflix_url.present? %>
                 <%= link_to recommendation.movie.netflix_url, target: "_blank" do %>

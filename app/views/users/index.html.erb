@@ -10,23 +10,53 @@
 <div class="container">
   <% @users.each do |user| %>
   <div class="friend-card d-flex justify-content-between">
-    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" class="friend-card-avatar">
+
+ <div class="friend-card-avatar">
+  <% if current_user.photo.attached? %>
+            <%= cl_image_tag current_user.photo.key %>
+    <% else %>
+            <img src="https://pixy.org/download/301929/" class="friend-card-avatar">
+    <% end %>
+    </div>
      <% if current_user.following?(user) %>
       <%= link_to unfollow_user_path(user), method: :patch do %>
          <i class="fas fa-minus icon"></i>
           <% end %>
+    <% elsif user == current_user %>
+    <div class="linktoedit">
+      <%= link_to 'Edit Profile', edit_user_registration_path %>
+    </div>
     <% else %>
       <%= link_to follow_user_path(user) do %>
           <i class="fas fa-plus icon"></i>
         <% end %>
       <% end %>
     <div class="friend-information d-flex flex-column">
-      <h1> <%= user.first_name&.capitalize %> <%= user.last_name&.capitalize %> </h1>
+      <%= link_to user_path(user) do %>
+        <h1><%= user.first_name&.capitalize %> <%= user.last_name&.capitalize %> </h1>
+      <% end %>
       <p>Bio: is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout</p>
     </div>
   </div>
 <br>
 <% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

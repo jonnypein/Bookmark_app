@@ -40,17 +40,27 @@
   </div>
 </div>
 
+<%= form_tag movies_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a movie"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
 
 <div class="container_reco">
 
   <% @user.recommendations.each do |recommendation| %>
    <ul>
     <div class="card-product-profile">
-    <img src="<%=recommendation.movie.picture_url%>" />
-    <div class="card-product-infos-profile">
-    <h2 ><%= recommendation.movie.title %></h2>
-    <p><%= recommendation.movie.description %></p>
-    <p class="Movie_icone"> IMDB NETFLIX AMAZON PRIME</p>
+      <img src="<%=recommendation.movie.picture_url%>" />
+      <div class="card-product-infos-profile">
+      <h2 ><%= recommendation.movie.title %></h2>
+      <p><%= recommendation.movie.description %></p>
+      <p class="Movie_icone"> IMDB NETFLIX AMAZON PRIME</p>
+    </div>
   </ul>
  <% end %>
 

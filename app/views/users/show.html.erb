@@ -1,6 +1,5 @@
 
 <div class="container_profile">
-  <p><%= link_to "edit profil", edit_user_registration_path %></p>
 
   <div class="row">
     <% if @user.photo.attached? %>
@@ -13,12 +12,8 @@
       <h1 id="profile_username"><%= @user.first_name %> <%= @user.last_name %> (<%= @user.email %>)</h1>
       <!-- remove later -->
 
-      <p id="profile_bio">My bio: Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. </p>
-
-      <h1 id="profile_username"><%= @user.first_name %> <%= @user.last_name %></h1>
-
       <p id="profile_bio"><%= @user.bio %></p>
-]
+
       <div class="row">
         <p class="col px-md-3" class="profile_follower">Followers <strong><%= @user.followers_by_type_count('User') %></strong></p>
         <p class="col px-md-3" class="profile_follower">Following <strong><%= @user.all_follows.length %></strong></p>
@@ -43,7 +38,6 @@
       </div>
 
   </div>
-  <%= link_to "Add Movie", movies_path %>
 </div>
 
 

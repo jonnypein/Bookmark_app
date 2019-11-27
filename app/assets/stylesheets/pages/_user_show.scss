@@ -33,14 +33,14 @@
   padding: 16px;
 }
 
-.container_profile {
+/*.container_profile {
   margin-top: 50px;
   margin-left: 300px;
-}
+}*/
 
 .container_reco {
   margin-top: 50px;
-  margin-left: 200px;
+  margin-left: 300px;
 }
 
 #follow {
@@ -49,4 +49,10 @@
 
 .Movie_icone {
   font-size: 10px;
+}
+
+.profile_pic{
+  width: 100px;
+  width: 100px;
+  object-fit: fill;
 }

@@ -60,10 +60,19 @@
             <h2 ><%= recommendation.movie.title %></h2>
             <p><%= recommendation.movie.description %></p>
             <button class='add_a_tag'> <%= link_to 'Add a tag', new_recommendation_tag_path(recommendation) %> </button>
-            <button> Delete movie</button>
+
+
+            <%= link_to "Delete", recommendation_path(recommendation), method: :delete, data: {confirm: "Whatt Why?"}%>
+
+
+
             <p><%= @user.first_name %> has recommended this movie with the tags:</p>
+
+
+
             <% recommendation.tags.each do |tag| %>
               <p class='tag'><%= tag.name %></p>
+              <%= link_to "Delete #{tag.name}", tag_path(tag), method: :delete, data: {confirm: "Whatt Why?"}%>
               <% end %>
             <ul class="where-to-watch">
               <% if recommendation.movie.imdb_url.present? %>

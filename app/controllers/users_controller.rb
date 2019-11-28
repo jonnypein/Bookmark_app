@@ -28,5 +28,4 @@ class UsersController < ApplicationController
     current_user.stop_following(@user)
     redirect_to user_path(@user)
   end
-
 end

@@ -1,10 +1,8 @@
 class TagsController < ApplicationController
-
   def new
     @tag = Tag.new
     @recommendation = Recommendation.find(params[:recommendation_id])
   end
-
 
   def show
     @tag = Tag.find(params[:id])
@@ -22,18 +20,16 @@ class TagsController < ApplicationController
   end
 
 
-  def index
-     if params[:query].present?
-      @tags = Tag.all.search_by_tag_name(params[:query])
-    else
-      @Tag = Tag.all
-    end
+
+private
+  def destroy
+    @tag = Tag.find(params[:id])
+    @tag.destroy
+    redirect_to user_path(current_user)
   end
 
-  private
 
   def strong_params
     params.require(:tag).permit(:name)
   end
-
 end

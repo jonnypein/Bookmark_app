@@ -1,11 +1,58 @@
-<div class="container">
-  <br>
-  <br>
-  <br>
-  <h2 style="margin-left: 20px; font-weight: 500; color: rgb(205, 206, 200)">Most recommended movies this month</h2>
+<div class="container pt-4">
+
+  <div class="lets-go mb-4">
+    <div class="lets-go-info d-flex flex-column" >
+      <h3>Bookmark keeping you in the loop</h3>
+      <div class="lets-go-button">Let's Go</div>
+    </div>
+    <%= cl_image_tag "https://res.cloudinary.com/dtjblav7i/image/upload/v1574955096/illustrations_f9yo5s.svg", class:'lets-go-picture' %>
+  </div>
+
+  <h4>Most recommended movies this month</h4>
   <div class="carousel">
     <% @movies.each do |movie| %>
       <%= image_tag movie.picture_url, class:'movie-picture' %>
     <% end %>
+  </div>
+</div>
+
+
+<% if !user_signed_in? %>
+  <div class="home-sign-up-box">
+    <%= simple_form_for(registration_path(User.new)) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="home-form-inputs">
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" }%>
+        <%= f.input :password,
+                    required: true,
+                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :password_confirmation,
+                      required: true,
+                      input_html: { autocomplete: "new-password" } %>
+      </div>
+      <div class="lets-go-submit">
+        <%= f.button :submit, "Sign up" %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+
+<div class="three-box-container d-flex">
+  <div class ="grey-1">
+    <p> Add any movies in less than 5 seconds to create your own list with all your favorite movies.</p>
+  </div>
+  <div class ="yellow">
+    <p>Create the tags you want to sort your movies without limit.</p>
+  </div>
+  <div class ="grey-2">
+    <p>Privacy is key for Bookmark. choose to share only the movies that you want to share to whom you want</p>
   </div>
 </div>

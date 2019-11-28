@@ -20,13 +20,13 @@ class TagsController < ApplicationController
   end
 
 
-
-private
   def destroy
     @tag = Tag.find(params[:id])
     @tag.destroy
     redirect_to user_path(current_user)
   end
+
+private
 
 
   def strong_params

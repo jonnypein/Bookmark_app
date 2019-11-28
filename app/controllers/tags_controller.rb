@@ -21,6 +21,15 @@ class TagsController < ApplicationController
     end
   end
 
+
+  def index
+     if params[:query].present?
+      @tags = Tag.all.search_by_tag_name(params[:query])
+    else
+      @Tag = Tag.all
+    end
+  end
+
   private
 
   def strong_params

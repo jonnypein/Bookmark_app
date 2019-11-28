@@ -72,8 +72,10 @@
 
 
             <% recommendation.tags.each do |tag| %>
-              <p class='tag'><%= tag.name %></p>
-              <%= link_to "Delete #{tag.name}", tag_path(tag), method: :delete, data: {confirm: "Whatt Why?"}%>
+              <% if @user == current_user %>
+                <p class='tag'><%= tag.name %></p>
+                <%= link_to "Delete #{tag.name}", tag_path(tag), method: :delete, data: {confirm: "Whatt Why?"}%>
+                <% end %>
               <% end %>
             <ul class="where-to-watch">
               <% if recommendation.movie.imdb_url.present? %>

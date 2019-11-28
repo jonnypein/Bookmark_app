@@ -1,4 +1,5 @@
 
+<!--Profile card-->
 <div class="container_profile">
     <div class="row justify-content-center">
       <div>
@@ -30,69 +31,119 @@
           <div class='edit_profile_button'>
             <% if @user == current_user %>
               <%= link_to edit_user_registration_path do %>
-              <button type="button" class="btn btn-dark">Edit Profile</button>
+                <button type="button" class="btn btn-dark">Edit Profile</button>
               <% end %>
             <% end %>
           </div>
        </div>
       </div>
   </div>
-  <div class="container_reco">
-      <div class="row mx-md-n2">
-        <p class="col px-md-2">Recommendations</p>
-        <p class="col px-md-2">Bookmarks</p>
-      </div>
+<!--/Profile card-->
+
+
+<!--Buttons tab-->
+<div class="container_reco">
+
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Recommendations</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Bookmarks</a>
+    </li>
+  </ul>
+<!--/Buttons tab-->
+
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+      <!--search bar-->
       <div id='search_profile'>
         <%= form_tag movies_path, method: :get do %>
-        <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Find a movie"
-        %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
+          <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a movie"
+          %>
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+        <% end %>
       </div>
-    <% end %>
-    <% @user.recommendations.each do |recommendation| %>
-      <ul>
+      <!--/search bar-->
+
+
+      <!--Recos-->
+      <% @user.recommendations.each do |recommendation| %>
+
+          <div class="card-product-profile">
+            <img src="<%= recommendation.movie.picture_url%> "/>
+            <div class="card-product-infos-profile">
+              <h2 ><%= recommendation.movie.title %></h2>
+              <p><%= recommendation.movie.description %></p>
+              <%= link_to 'Add a tag', new_recommendation_tag_path(recommendation), class: "btn btn-primary" %>
+              <button>Delete movie</button>
+              <p><%= @user.first_name %> has recommended this movie with the tags:</p>
+              <% recommendation.tags.each do |tag| %>
+                <p class='tag'><%= tag.name %></p>
+              <% end %>
+              <div class="where-to-watch">
+                <% if recommendation.movie.imdb_url.present? %>
+                  <%= link_to recommendation.movie.imdb_url, target: "_blank" do %>
+                    <li><i class="fab fa-imdb"></i></li>
+                  <% end %>
+                <% end %>
+                <% if recommendation.movie.netflix_url.present? %>
+                  <%= link_to recommendation.movie.netflix_url, target: "_blank" do %>
+                  <li><img src="https://www.freepnglogos.com/uploads/netflix-logo-circle-png-5.png" alt="netflix" style="width:15px; height:15px;"></li>
+                  <% end %>
+                <% end %>
+                <% if recommendation.movie.amazon_url.present? %>
+                  <%= link_to recommendation.movie.amazon_url, target: "_blank" do %>
+                  <li><i class="fab fa-amazon"></i></li>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+      <% end %>
+    </div>
+    <!--/Recos-->
+
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+      <!-- Bookmarks-->
+      <% @user.bookmarks.each do |bookmark| %>
         <div class="card-product-profile">
-          <img src="<%= recommendation.movie.picture_url%> "/>
+          <img src="<%= bookmark.movie.picture_url%> "/>
           <div class="card-product-infos-profile">
-            <h2 ><%= recommendation.movie.title %></h2>
-            <p><%= recommendation.movie.description %></p>
-            <button class='add_a_tag'> <%= link_to 'Add a tag', new_recommendation_tag_path(recommendation) %> </button>
-            <button> Delete movie</button>
-            <p><%= @user.first_name %> has recommended this movie with the tags:</p>
-            <% recommendation.tags.each do |tag| %>
-              <p class='tag'><%= tag.name %></p>
-              <% end %>
-            <ul class="where-to-watch">
-              <% if recommendation.movie.imdb_url.present? %>
-              <%= link_to recommendation.movie.imdb_url, target: "_blank" do %>
-                <li><i class="fab fa-imdb"></i></li>
-              <% end %>
-              <% end %>
-              <% if recommendation.movie.netflix_url.present? %>
-                <%= link_to recommendation.movie.netflix_url, target: "_blank" do %>
-                <li><img src="https://www.freepnglogos.com/uploads/netflix-logo-circle-png-5.png" alt="netflix" style="width:15px; height:15px;"></li>
+            <h2 ><%= bookmark.movie.title %></h2>
+            <p><%= bookmark.movie.description %></p>
+            <div class="where-to-watch">
+              <% if bookmark.movie.imdb_url.present? %>
+                <%= link_to bookmark.movie.imdb_url, target: "_blank" do %>
+                  <li><i class="fab fa-imdb"></i></li>
                 <% end %>
               <% end %>
-              <% if recommendation.movie.amazon_url.present? %>
-              <%= link_to recommendation.movie.amazon_url, target: "_blank" do %>
-                <li><i class="fab fa-amazon"></i></li>
+              <% if bookmark.movie.netflix_url.present? %>
+                <%= link_to bookmark.movie.netflix_url, target: "_blank" do %>
+                  <li><img src="https://www.freepnglogos.com/uploads/netflix-logo-circle-png-5.png" alt="netflix" style="width:15px; height:15px;"></li>
                 <% end %>
               <% end %>
-            </ul>
+              <% if bookmark.movie.amazon_url.present? %>
+                <%= link_to bookmark.movie.amazon_url, target: "_blank" do %>
+                  <li><i class="fab fa-amazon"></i></li>
+                <% end %>
+              <% end %>
+            </div>
           </div>
         </div>
-      </ul>
-    <% end %>
+      <% end %>
+      <!--/Bookmarks-->
+
+    </div>
   </div>
-</div>
 
-
-
-
-
+<!--NOTE: closing DIV Container-->
 </div>
 
 

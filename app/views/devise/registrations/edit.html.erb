@@ -21,6 +21,10 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
+    <%= f.input :first_name,
+                hint: "Enter Your First Name" %>
+    <%= f.input :last_name,
+                hint: "Enter Your Last Name" %>
     <%= f.input :photo, as: :file  %>
     <%= f.input :bio, hint: "Say something about yourself"  %>
 

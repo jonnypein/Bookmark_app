@@ -9,6 +9,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    if params[:query].present?
+      sql_query = "tags.name @@ :query"
+      @recommendations = Recommendation.joins(:tags).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @recommendations = @user.recommendations
+    end
   end
 
   def follow
@@ -22,5 +28,4 @@ class UsersController < ApplicationController
     current_user.stop_following(@user)
     redirect_to user_path(@user)
   end
-
 end

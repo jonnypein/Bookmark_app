@@ -21,6 +21,13 @@ class RecommendationsController < ApplicationController
       render "movies/index"
     end
   end
+
+    def destroy
+      @recommendation = Recommendation.find(params[:id])
+      @recommendation.destroy
+      redirect_to user_path(current_user)
+    end
+
   # def recommedations_params
   #   params.require(:recommendation).permit(:)
   # end

@@ -8,11 +8,12 @@ Rails.application.routes.draw do
 
   end
 
+  resources :tags, only: [:destroy]
 
   resources :bookmarks, only: [:destroy, :index]
 
   resources :recommendations, only: [:destroy, :index] do
-    resources :tags
+    resources :tags, except: :destroy
   end
 
 

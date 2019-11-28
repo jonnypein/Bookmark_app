@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :recommendations
-  has_many :bookmarks
+  has_many :recommendations, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
   has_one_attached :photo
   acts_as_followable
   acts_as_follower

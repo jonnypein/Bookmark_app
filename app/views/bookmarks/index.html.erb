@@ -10,6 +10,7 @@
        <p><%= bookmark.movie.genre %></p>
        <p><%= bookmark.movie.year %></p>
        <p class="Movie_icone"> IMDB NETFLIX AMAZON PRIME</p>
+       <%= link_to "Delete", bookmark_path(bookmark), method: :delete, data: {confirm: "Whatt Why?"}%>
        </div>
    </div>
 <% end %>

@@ -1,19 +1,26 @@
-<h1>List of movies</h1>
+
+<div class="banner d-flex justify-content-end align-items-center px-3" style="background-image: url('<%= asset_path 'movie.jpg' %>')">
+  <h1>List of movies</h1>
+</div>
+
+<div class="row">
+
 <% @movies.each do |movie| %>
-  <%#= movie.title %>
-  <%#= movie.description %>
-  <%#= movie.genre %>
-  <%#= movie.year %>
-   <div class="card-product-profile">
-     <img src="<%= movie.picture_url %>" />
-     <div class="card-product-infos-profile">
-       <h2 ><%= movie.title %></h2>
-       <p><%= movie.description %></p>
-       <p class="Movie_icone"> IMDB NETFLIX AMAZON PRIME</p>
-       <%= link_to "Add recommendation", movie_recommendations_path(movie), method: :post, class: "btn btn-primary" %>
-       <%= link_to "bookmark", movie_bookmarks_path(movie), method: :post, class: "btn btn-primary" %>
+  <div class="col-4">
+
+    <div class="card-product-profile">
+      <img src="<%= movie.picture_url %>" />
+      <div class="card-product-infos-profile">
+        <h2 ><%= movie.title %></h2>
+        <p><%= movie.description %></p>
+        <p class="Movie_icone"> IMDB NETFLIX AMAZON PRIME</p>
+        <button type="button" class="btn btn-warning"><%= link_to "Add recommendation", movie_recommendations_path(movie), method: :post %></button>
+
+        <%= link_to "bookmark", movie_bookmarks_path(movie), method: :post, class: "btn-blue" %>
       </div>
-   </div>
+    </div>
+
+  </div>
 <% end %>
 
-
+</div>

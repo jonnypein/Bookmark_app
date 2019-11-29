@@ -54,7 +54,7 @@ user3 = User.create!(email: "test12345@test.com", password: "123456", first_name
 
 require "open-uri"
 require "nokogiri"
-require "pry"
+
 
 def fetch_movie_urls
   top_url = "http://www.imdb.com/chart/top"

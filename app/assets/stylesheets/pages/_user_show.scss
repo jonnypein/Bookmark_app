@@ -1,18 +1,23 @@
 .card-product-profile {
   overflow: hidden;
   min-height: 120px;
-  // width: 860px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  margin-top: 25px;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  margin: 0 auto;
   margin-top: 10px;
+  width: 90vw;
 }
 
 .card-product-profile img {
   height: 100%;
-  width: 130px;
+  width: 170px;
   object-fit: cover;
+  margin: 20px;
+  border-radius: 10px;
 }
 
 .card-product-profile h2 {
@@ -31,18 +36,10 @@
 
 .card-product-profile .card-product-infos-profile {
   padding: 16px;
-  text-align: center;
-  margin: 0 auto;
 }
 
-/*.container_profile {
-  margin-top: 50px;
-  margin-left: 300px;
-}*/
-
 .container_reco {
-  margin-top: 50px;
-  margin-left: 300px;
+  margin: 0 auto;
 }
 
 #follow {
@@ -54,15 +51,185 @@
 }
 
 .profile_pic{
-  width: 100px;
+  width: 200px;
   object-fit: fill;
+  border-radius: 50%;
 }
 
 .tag {
-  background-color: blue;
-  width: 60px;
+  color: white;
+  background-color: #1702fa;
+  border: 1px solid lightgrey;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  width: 150px;
+  text-align: center;
+  margin: 5px;
 }
 
 .tags {
   display: flex;
 }
+
+#container_profile_card_my_profile {
+  background: linear-gradient(112.46deg, #FFFFCC 5.43%, #F8CF61 95.15%);
+  border-radius: 25px;
+  width: 1187px;
+  height: 120px;
+  margin-top: 70px;
+  margin-left: 150px;
+  color: white;
+
+}
+
+#text_profile_card {
+  padding-left: 389px;
+}
+
+#profile_name {
+  padding-top: 25px;
+  font-size: 45px;
+  line-height: 41px;
+}
+
+#profile_bio {
+  padding-top: 25px;
+  font-size: 25px;
+  color: black;
+}
+
+.social {
+  font-size: 15px;
+  color: black;
+}
+
+#white_background {
+background: white;
+border-radius: 52px;
+width: 1180px;
+height: 130px;
+margin-top: -30px;
+margin-left: 158px;
+}
+
+#avatar_profile {
+  position: absolute;
+  margin-top: -190px;
+  margin-left: 250px;
+}
+
+#edit_profile_button_new {
+  margin-top: 210px;
+}
+
+#follow_or_not {
+  margin-top: -200px;
+  margin-left: 600px;
+}
+
+#follow {
+  border-radius: 15px;
+  color: white;
+  background-color: rgba(0,0,0,0);
+  border: 2px solid white;
+}
+
+
+#container_search_border {
+  width: 550px;
+  height: 80px;
+  margin-top: 0px;
+  margin: 0 auto;
+  border: 1px solid lightgrey;
+  border-radius: 15px;
+  width: 90vw;
+
+}
+
+#container_search {
+  width: 800px;
+  height: 60px;
+  margin-top: 0px;
+  margin-left: 0px;
+}
+
+
+#container_tabs {
+  width: 1187px;
+  height: 60px;
+  margin-top: 70px;
+  margin: 0 auto;
+  padding-top: 19px;
+}
+
+.tabs-underlined {
+  display: flex;
+  align-items: center;
+}
+
+.tabs-underlined .tab-underlined {
+  color: black;
+  padding: 8px;
+  margin: 8px 16px;
+  opacity: .4;
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: 4px solid transparent;
+}
+
+.tabs-underlined .tab-underlined.active {
+  opacity: 1;
+  border-bottom: 3px solid #555555;
+}
+
+#search_profile {
+  padding: 20px;
+}
+
+#search_profile .form-control{
+  border-radius: 5px;
+  width: 650px;
+}
+
+#button-submit-search-reco {
+  margin-left: 1000px;
+  margin-top: -35px;
+}
+
+#search_profile .input {
+  color: red;
+}
+
+#movie-title-profile {
+  font-size: 30px;
+}
+
+#has-reco {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+#add_a_tag {
+  color: #4A4A4A;
+  border: 1px solid lightgrey;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  margin: 5px;
+}
+
+#add_a_tag:hover {
+  opacity: 1;
+}
+
+#add_a_tag .a:hover {
+  color: grey;
+}
+
+
+

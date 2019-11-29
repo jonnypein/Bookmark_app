@@ -11,8 +11,9 @@
  }
 }
 
-.card-product-profile {
+.card-product-movies {
 
+  display: flex;
   position: relative;
   overflow: hidden;
   background: white;
@@ -25,6 +26,28 @@
   margin-bottom: 12px;
   position: relative;
 
+  img {
+    width: 130px;
+    object-fit: cover;
+  }
+
+  h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px;
+  }
+  .card-product-infos-movies {
+    padding: 16px;
+    text-align: center;
+    margin: auto auto;
+    height: fit-content;
+  }
+
+  div.card-product-infos-movies i {
+  color: rgb(241, 197, 87);
+  padding: 20px;
+  font-size: 2em;
+  }
 
  //  &:hover{
  //      transition-delay: .5s;
@@ -42,14 +65,6 @@
 //   .btn-blue:hover {
 //     background-color: #FFDF6D;
 // }
-
-div.card-product-infos-profile i {
-  color: rgb(241, 197, 87);
-  padding: 20px;
-  font-size: 2em;
-
-
-}
 
 .movie-grid {
 

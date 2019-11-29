@@ -19,7 +19,7 @@ gem 'pundit'
 gem 'cloudinary', '~> 1.12.0'
 gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
 gem 'pg_search', '~> 2.3.0'
-
+gem 'faker'
 
 
 group :development do

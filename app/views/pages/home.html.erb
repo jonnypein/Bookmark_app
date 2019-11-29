@@ -3,8 +3,12 @@
   <div class="lets-go mb-4">
     <div class="lets-go-info d-flex flex-column" >
       <h3>Bookmark keeping you in the loop</h3>
+
+      <%= link_to recommendations_path  :action => 'go' do %>
       <div class="lets-go-button">Let's Go</div>
+      <% end %>
     </div>
+
     <%= cl_image_tag "https://res.cloudinary.com/dtjblav7i/image/upload/v1574955096/illustrations_f9yo5s.svg", class:'lets-go-picture' %>
   </div>
 
@@ -46,14 +50,9 @@
 <% end %>
 
 
-<div class="three-box-container d-flex">
-  <div class ="grey-1">
-    <p> Add any movies in less than 5 seconds to create your own list with all your favorite movies.</p>
-  </div>
-  <div class ="yellow">
-    <p>Create the tags you want to sort your movies without limit.</p>
-  </div>
-  <div class ="grey-2">
-    <p>Privacy is key for Bookmark. choose to share only the movies that you want to share to whom you want</p>
-  </div>
+<div class="three-box-container">
+
+  <%= cl_image_tag "https://res.cloudinary.com/dtjblav7i/image/upload/v1575028623/background_fyixao.svg" %>
+  <h1>Bookmark</h1>
+  <h2>Millions of recommendations from your friends and others</h2>
 </div>

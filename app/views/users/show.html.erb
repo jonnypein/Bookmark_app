@@ -47,10 +47,13 @@
     <li class="nav-item">
       <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Recommendations</a>
     </li>
+    <% if @user == current_user %>
     <li class="nav-item">
       <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Bookmarks</a>
     </li>
+    <% end %>
   </ul>
+
   <!--/Buttons tab-->
 
   <div class="tab-content" id="myTabContent">
@@ -91,11 +94,13 @@
             <p><%= @user.first_name %> has recommended this movie with the tags:</p>
 
             <% recommendation.tags.each do |tag| %>
-            <% if @user == current_user %>
-              <p class='tag'><%= tag.name %></p>
               <% if tag.name.present? %>
-              <%= link_to "Delete #{tag.name}", tag_path(tag), method: :delete, data: {confirm: "Whatt Why?"}%>
+                <p class='tag'><%= tag.name %></p>
               <% end %>
+              <% if @user == current_user %>
+                <% if tag.name.present? %>
+                  <%= link_to "Delete #{tag.name}", tag_path(tag), method: :delete, data: {confirm: "Whatt Why?"}%>
+                <% end %>
               <% end %>
             <% end %>
             <div class="where-to-watch">

@@ -5,6 +5,17 @@
   margin: 0 auto;
   position:relative;
 
+  img{
+
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    object-position: top;
+
+
+  }
+
   a{
     text-decoration: none;
     color: black;
@@ -49,6 +60,10 @@
 
   img{
     margin-right: 11px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+
   }
 
   h3{
@@ -125,6 +140,7 @@
   padding-top:11px !important;
   margin-left: 42px !important;
   font-weight: bold !important;
+  text-decoration: none;
 }
 
 .home-sign-up-box{
@@ -152,28 +168,30 @@
     margin-top: 30px;
     height: 481px;
     color: white;
+    position: relative;
 
-    p {
-      font-size: 20px;
-      margin-top: 263px;
+    img{
+      width: 2000px;
+       z-index: -1;
     }
 
-    .grey-1{
-      text-align: center;
-      width: 33%;
-      background: rgba(196, 196, 196, 0.57);
+    h1{
+      position: absolute;
+      bottom: 300px;
+      left: 90px;
+      font-weight: 900;
     }
-    .grey-2{
-      text-align: center;
-      width: 33%;
-      background: rgba(196, 196, 196, 0.57);
-    }
-    .yellow{
-      text-align: center;
-      width: 33%;
-      background: #F8CF61
+    h2{
+      position: absolute;
+      bottom: 256px;
+      left: 90px;
+      font-weight: 900;
+
+
     }
   }
+
+
 
 .footer{
 
@@ -182,5 +200,5 @@
   }
   .social-info{
   margin-right:110px;
-}
-}
+}}
+

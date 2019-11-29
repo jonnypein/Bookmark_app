@@ -1,7 +1,7 @@
 <div class="container">
   <br>
   <br>
-  <div class="recommendations-title-box d-flex align-items-center"><h2>Last Recommendations by people you know</h2></div>
+  <div class="recommendations-title-box d-flex align-items-center"><h2>Latest recommendations by people you know</h2></div>
   <% @recommendations.each do |r| %>
     <div class="recomendation-card d-flex align-items-center">
       <% if current_user.photo.attached? %>

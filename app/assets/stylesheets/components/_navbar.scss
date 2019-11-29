@@ -1,14 +1,17 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.30);
+
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+
 }
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+
 }
 
 .nav-link {
@@ -17,10 +20,12 @@
 .search-form-control {
   width: 500px;
   margin: 10px;
+  opacity: 50%;
 }
 
 .search-form-control {
   position: relative;
+
 }
 
 .search-form-control .btn {
@@ -28,12 +33,14 @@
   top: 8px;
   bottom: 8px;
   right: 8px;
+
 }
 
 .search-form-control .form-control {
   height: 3.5rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   border: 1px solid #E7E7E7;
+
 }
 
 .search-form-control .form-control:focus {

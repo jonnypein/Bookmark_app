@@ -1,103 +1,112 @@
 <!--Profile card-->
-<div class="container_profile">
-  <div class="row justify-content-center">
-    <div>
-      <% if @user.photo.attached? %>
+<div id="container_master_my_profile">
+
+  <!-- profile card -->
+  <div id="container_profile_card_my_profile">
+    <div id="text_profile_card">
+      <p id="profile_name"><strong><%= @user.first_name %> <%= @user.last_name %></strong></p>
+      <p id="profile_bio"><%= @user.bio %></p>
+      <div class="social">
+        <p class="d-inline">Followers <strong><%= @user.followers_by_type_count('User') %></strong></p>
+        <p class="d-inline">Following <strong><%= @user.all_follows.length %></strong>
+      </div>
+    <div id="follow_or_not">
+      <% unless @user == current_user %>
+        <% if current_user.following?(@user) %>
+          <%= link_to unfollow_user_path(@user), method: :patch do %>
+            <button id="follow" class="btn btn-primary">Unfollow</button>
+          <% end %>
+        <% else %>
+          <%= link_to follow_user_path(@user) do %>
+            <button id="follow" class="btn btn-light">Follow</button>
+          <% end %>
+        <% end %>
+    <% end %>
+  </div>
+      <div id='edit_profile_button_new'>
+        <% if @user == current_user %>
+          <%= link_to edit_user_registration_path do %>
+            <button type="button" class="btn btn-dark">Edit Profile</button>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div id="white_background">
+  </div>
+   <div id="avatar_profile">
+    <% if @user.photo.attached? %>
         <%= cl_image_tag @user.photo.key, height: 100, width: 100, crop: :fill %>
       <% else %>
         <img class="profile_pic" src="https://pixy.org/download/301929/">
       <% end %>
-        <div class="col">
-          <h1 id="profile_username"><%= @user.first_name %> <%= @user.last_name %> (<%= @user.email %>)</h1>
-          <p id="profile_bio"><%= @user.bio %></p>
-          <div class="row">
-            <p class="col px-md-3" class="profile_follower">Followers <strong><%= @user.followers_by_type_count('User') %></strong></p>
-            <p class="col px-md-3" class="profile_follower">Following <strong><%= @user.all_follows.length %></strong></p>
-          </div>
-        </div>
-        <div class="col d-flex flex-column">
-          <% unless @user == current_user %>
-          <% if current_user.following?(@user) %>
-            <%= link_to unfollow_user_path(@user), method: :patch do %>
-            <button id="follow" class="btn btn-primary">Unfollow</button>
+    </div>
+
+    <!-- /profile card -->
+
+    <!-- tab -->
+    <div id='container_tabs'>
+        <ul class="list-inline tabs-underlined" id="myTab" role="tablist">
+          <li class="nav-item-bookmarks">
+            <a class="tab-underlined active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Recommendations</a>
+          </li>
+          <li class="nav-item">
+            <a class="tab-underlined" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Bookmarks</a>
+          </li>
+        </ul>
+    </div>
+    <!-- /tab -->
+
+    <!-- Search Bar -->
+    <div id='container_search_border'>
+        <div id='search_profile'>
+          <% if @user == current_user %>
+            <%= form_tag movies_path, method: :get do %>
+              <%= text_field_tag :query,
+              params[:query], class: "form-control",
+              placeholder: "Search for a movie to recommend"%>
+               <div id="button-submit-search-reco"><%= submit_tag "Search now" %></div>
             <% end %>
           <% else %>
-             <%= link_to follow_user_path(@user) do %>
-                <button id="follow" class="btn btn-primary">Follow</button>
-              <% end %>
+            <%= form_tag user_path(@user), method: :get do %>
+              <%= text_field_tag :query, params[:query], class: "form-control",
+              placeholder: "search for a tag"%>
+            <div id="button-submit-search-reco"><%= submit_tag "Search", class: "btn btn-primary" %></div>
+            <% end %>
           <% end %>
-        <% end %>
-          <div class='edit_profile_button'>
-            <% if @user == current_user %>
-              <%= link_to edit_user_registration_path do %>
-                <button type="button" class="btn btn-dark">Edit Profile</button>
-              <% end %>
-            <% end %>
-          </div>
-       </div>
-    </div>
+        </div>
   </div>
-<!--/Profile card-->
+    <!-- /Search Bar -->
 
 
-<!--Buttons tab-->
-<div class="container_reco">
-
-  <ul class="nav nav-tabs" id="myTab" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Recommendations</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Bookmarks</a>
-    </li>
-  </ul>
-  <!--/Buttons tab-->
-
-  <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-      <!--search bar-->
-      <div id='search_profile'>
-        <% if @user == current_user %>
-          <%= form_tag movies_path, method: :get do %>
-          <%= text_field_tag :query,
-          params[:query], class: "form-control",
-          placeholder: "Search for a movie to recommend"%>
-          <%= submit_tag "Search", class: "btn btn-primary" %>
-            <% end %>
-        <% else %>
-          <%= form_tag user_path(@user), method: :get do %>
-          <%= text_field_tag :query, params[:query], class: "form-control",
-          placeholder: "search for a tag"%>
-          <%= submit_tag "Search", class: "btn btn-primary" %>
-            <% end %>
-        <% end %>
-      </div>
-      <!--/search bar-->
-
-
-      <!--Recos-->
-      <% @recommendations.each do |recommendation| %>
+    <!-- Recos -->
+    <% @recommendations.each do |recommendation| %>
 
         <div class="card-product-profile">
           <img src="<%= recommendation.movie.picture_url%> "/>
           <div class="card-product-infos-profile">
-            <h2 ><%= recommendation.movie.title %></h2>
+            <h2 id='movie-title-profile' ><%= recommendation.movie.title %></h2>
             <p><%= recommendation.movie.description %></p>
             <% if @user == current_user %>
-              <button class='add_a_tag'> <%= link_to 'Add a tag', new_recommendation_tag_path(recommendation) %> </button>
-              <%= link_to "Delete", recommendation_path(recommendation), method: :delete, data: {confirm: "Whatt Why?"}%>
+              <p id='has-reco'><%= @user.first_name %> has recommended this movie with the tags:</p>
+              <button id='add_a_tag'><%= link_to 'Add a tag', new_recommendation_tag_path(recommendation) %></button>
+             <button id='add_a_tag'><%= link_to "Delete this recommendation", recommendation_path(recommendation), method: :delete, data: {confirm: "Whatt Why?"}%></button>
             <% end %>
 
-            <p><%= @user.first_name %> has recommended this movie with the tags:</p>
 
-            <% recommendation.tags.each do |tag| %>
-            <% if @user == current_user %>
-              <p class='tag'><%= tag.name %></p>
-              <% if tag.name.present? %>
-              <%= link_to "Delete #{tag.name}", tag_path(tag), method: :delete, data: {confirm: "Whatt Why?"}%>
+            <div class='d-flex'>
+              <% recommendation.tags.each do |tag| %>
+                <% if @user == current_user %>
+                  <div>
+                    <div class='tag'><%= tag.name %></div>
+                    <% if tag.name.present? %>
+                      <p class='text-center'><%= link_to "Delete tag", tag_path(tag), method: :delete, data: {confirm: "Are you sure you want to delete?"}%></p>
+                    <% end %>
+                  </div>
+                <% end %>
               <% end %>
-              <% end %>
-            <% end %>
+            </div>
+
             <div class="where-to-watch">
               <% if recommendation.movie.imdb_url.present? %>
                 <%= link_to recommendation.movie.imdb_url, target: "_blank" do %>
@@ -121,17 +130,19 @@
           </div>
         </div>
       <% end %>
-        <!--/Recos-->
+      <!--/Recos-->
+</div><!-- /closing div master profile -->
+<!--/Profile card-->
     </div>
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 
 <!-- Bookmarks-->
     <% @user.bookmarks.each do |bookmark| %>
-        <div class="card-product-profile">
-          <img src="<%= bookmark.movie.picture_url%> "/>
-          <div class="card-product-infos-profile">
-            <h2 ><%= bookmark.movie.title %></h2>
-            <p><%= bookmark.movie.description %></p>
+      <div class="card-product-profile">
+        <img src="<%= bookmark.movie.picture_url%> "/>
+        <div class="card-product-infos-profile">
+          <h2 ><%= bookmark.movie.title %></h2>
+          <p><%= bookmark.movie.description %></p>
             <div class="where-to-watch">
               <% if bookmark.movie.imdb_url.present? %>
                 <%= link_to bookmark.movie.imdb_url, target: "_blank" do %>
@@ -149,6 +160,9 @@
                 <% end %>
               <% end %>
             </div>
+          </div>
+        </div>
+      </div>
     <% end %>
 <!--/Bookmarks-->
 

@@ -1,0 +1,59 @@
+.card-product-profile {
+  overflow: hidden;
+  min-height: 120px;
+  /*width: 860px;*/
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.card-product-profile img {
+  height: 100%;
+  width: 130px;
+  object-fit: cover;
+}
+
+.card-product-profile h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 5px;
+}
+
+.card-product-profile p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product-profile .card-product-infos-profile {
+  padding: 16px;
+}
+
+.container_profile {
+  margin-top: 50px;
+  margin-left: 300px;
+}
+
+.container_reco {
+  margin: 0 auto;
+}
+
+#follow {
+  margin-top: 50px;
+}
+
+.Movie_icone {
+  font-size: 10px;
+}
+
+.tag {
+  background-color: blue;
+  width: 60px;
+}
+
+
+

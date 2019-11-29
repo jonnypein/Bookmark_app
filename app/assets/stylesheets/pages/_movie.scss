@@ -1,0 +1,85 @@
+.banner {
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  margin-bottom: 20px;
+  h1 {
+    transform: translateY(35px) rotate(4deg);
+    text-shadow: 3px 2px rgba(0, 0, 0, 0.3);
+    font-size: 45px;
+    font-family: 'Yellowtail', cursive;
+ }
+}
+
+.card-product-movies {
+
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  width: 390px;
+  height: 250px;
+  padding: 10px;
+  margin: 0 auto;
+  margin-bottom: 12px;
+  position: relative;
+
+  img {
+    width: 130px;
+    object-fit: cover;
+  }
+
+  h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px;
+  }
+  .card-product-infos-movies {
+    padding: 16px;
+    text-align: center;
+    margin: auto auto;
+    height: fit-content;
+  }
+
+  div.card-product-infos-movies i {
+  color: rgb(241, 197, 87);
+  padding: 20px;
+  font-size: 2em;
+  }
+
+ //  &:hover{
+ //      transition-delay: .5s;
+ //      height: 200px;
+ //      width: 470px;
+ // }
+}
+
+// .btn-blue {
+//     background-color: #FFDF6D;
+//     padding: 10px 20px;
+//     border-radius: 10px;
+//   }
+
+//   .btn-blue:hover {
+//     background-color: #FFDF6D;
+// }
+
+.movie-grid {
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+.bookmark-icon{
+    position: absolute;
+    top: 5px;
+    right: 4px;
+  }
+
+
+
+
+

@@ -5,6 +5,17 @@
   margin: 0 auto;
   position:relative;
 
+  img{
+
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    object-position: top;
+
+
+  }
+
   a{
     text-decoration: none;
     color: black;
@@ -49,6 +60,10 @@
 
   img{
     margin-right: 11px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+
   }
 
   h3{
@@ -95,3 +110,95 @@
   border-radius: 2px;
   color: rgba(159, 191, 255, 0.6);
 }
+
+
+.lets-go {
+  background: linear-gradient(130.62deg, #F8CF61 9.56%, #FFFFCC 92.35%);
+  border-radius: 25px;
+  display: flex;
+  img {
+    position: relative;
+    top: -35px;
+    right: -26px;
+  }
+
+  h3{
+    color: white;
+    padding: 40px;
+  }
+
+}
+
+.lets-go-button{
+  border: 1px solid #FFFFFF !important;
+  box-sizing: border-box !important;
+  border-radius: 25px !important;
+  width: 100px !important;
+  height: 50px !important;
+  text-align: center !important;
+  color: white !important;
+  padding-top:11px !important;
+  margin-left: 42px !important;
+  font-weight: bold !important;
+  text-decoration: none;
+}
+
+.home-sign-up-box{
+ width: 1092px;
+  height: 504px;
+  background: #F8CF61;
+  border-radius: 25px;
+  margin: auto;
+  label{
+    color: white !important; // some color
+  }
+}
+
+.home-form-inputs{
+  width: 380px;
+  padding: 10px 20px;
+  margin-top: 50px;
+  border-radius: 3px;
+  margin: auto;
+
+  }
+
+  .three-box-container{
+    width: max !important;
+    margin-top: 30px;
+    height: 481px;
+    color: white;
+    position: relative;
+
+    img{
+      width: 2000px;
+       z-index: -1;
+    }
+
+    h1{
+      position: absolute;
+      bottom: 300px;
+      left: 90px;
+      font-weight: 900;
+    }
+    h2{
+      position: absolute;
+      bottom: 256px;
+      left: 90px;
+      font-weight: 900;
+
+
+    }
+  }
+
+
+
+.footer{
+
+  h3{
+    font-size: 16px;
+  }
+  .social-info{
+  margin-right:110px;
+}}
+

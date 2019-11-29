@@ -1,7 +1,6 @@
 .card-product-profile {
   overflow: hidden;
   min-height: 120px;
-  width: 950px;
   background: white;
   display: flex;
   align-items: center;
@@ -10,6 +9,7 @@
   border-radius: 10px;
   margin: 0 auto;
   margin-top: 10px;
+  width: 90vw;
 }
 
 .card-product-profile img {
@@ -39,8 +39,7 @@
 }
 
 .container_reco {
-  margin-top: 50px;
-  margin-left: 300px;
+  margin: 0 auto;
 }
 
 #follow {
@@ -146,7 +145,7 @@ margin-left: 158px;
   margin: 0 auto;
   border: 1px solid lightgrey;
   border-radius: 15px;
-  width: 1180px;
+  width: 90vw;
 
 }
 

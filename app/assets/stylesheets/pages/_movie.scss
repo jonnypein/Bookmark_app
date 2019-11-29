@@ -6,26 +6,31 @@
   h1 {
     transform: translateY(35px) rotate(4deg);
     text-shadow: 3px 2px rgba(0, 0, 0, 0.3);
-    font-size: 28px;
+    font-size: 45px;
+    font-family: 'Yellowtail', cursive;
  }
 }
 
 .card-product-profile {
-  margin: 5px;
+
   position: relative;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 5px;
-  // width: 400px;
-  display: flex;
-  flex: wrap;
+  width: 390px;
+  height: 250px;
+  padding: 10px;
+  margin: 0 auto;
+  margin-bottom: 12px;
+  position: relative;
 
-  &:hover{
-      transition-delay: .5s;
-      height: 200px;
-      width: 480px;
- }
+
+ //  &:hover{
+ //      transition-delay: .5s;
+ //      height: 200px;
+ //      width: 470px;
+ // }
 }
 
 // .btn-blue {
@@ -37,6 +42,28 @@
 //   .btn-blue:hover {
 //     background-color: #FFDF6D;
 // }
+
+div.card-product-infos-profile i {
+  color: rgb(241, 197, 87);
+  padding: 20px;
+  font-size: 2em;
+
+
+}
+
+.movie-grid {
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+.bookmark-icon{
+    position: absolute;
+    top: 5px;
+    right: 4px;
+  }
+
 
 
 

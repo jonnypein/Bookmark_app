@@ -14,7 +14,7 @@ def fetch_movie_urls
   top_url = "http://www.imdb.com/chart/top"
   doc = Nokogiri::HTML(open(top_url).read)
   movies = doc.search(".titleColumn a")
-  a = movies.take(10).map do |movie|
+  a = movies.take(100).map do |movie|
     puts "Getting #{movie.attributes["href"].value}"
     uri = URI.parse(movie.attributes["href"].value)
     uri.scheme = "http"

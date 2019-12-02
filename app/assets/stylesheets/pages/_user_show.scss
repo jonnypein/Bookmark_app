@@ -344,20 +344,20 @@ a:link {
   }
 
 #bookmark-from-friends {
-  margin-top: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
 
    a {
-    color: #F9D269;
+    color: grey;
     height: 20px;
     widht: 20px;
-    border: 1px solid #F9D269;
-    padding: 16px;
-    border-radius: 50px;
+    padding: 6px;
 
   }
 
   a:hover {
     color: #F9D269;
-    opacity: 0.3;
+    opacity: 0.6;
   }
 }

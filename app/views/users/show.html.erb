@@ -117,12 +117,13 @@
                     <% end %>
                   <% end %>
                 <% end %>
-                <div id="bookmark-from-friends">
+              </div>
+              <div id="bookmark-from-friends">
                   <% if @user != current_user && !current_user.bookmarks.where(movie: recommendation.movie).any? %>
-                    <%= link_to 'bookmark this movie', movie_bookmarks_path(recommendation), method: :post %>
+                    <%= link_to ' Add to Bookmarks', movie_bookmarks_path(recommendation), method: :post %>
+                    <%= link_to ' Add to Recommendations', movie_bookmarks_path(recommendation), method: :post %>
                   <% end %>
                 </div>
-              </div>
 
 
               <!--

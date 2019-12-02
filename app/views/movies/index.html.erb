@@ -1,10 +1,15 @@
 
-<div class="banner d-flex justify-content-end align-items-center px-3" style="background-image: url('<%= asset_path 'movie.jpg' %>'); box-shadow: 2px 5px 8px rgba(0,0,0,0.3);">
-  <h1>List of movies</h1>
+
+<div class="container pt-4">
+
+  <div class="lets-go mb-4">
+    <div class="lets-go-info d-flex flex-column" >
+      <h1>List of movies</h1>
+    </div>
+      <%= cl_image_tag "https://res.cloudinary.com/dtjblav7i/image/upload/v1574955096/illustrations_f9yo5s.svg", class:'lets-go-picture' %>
+  </div>
 </div>
 
-<!-- <div class="row">
- -->
  <div class="movie-grid">
 <% @movies.each do |movie| %>
   <!-- <div class="col-4"> -->

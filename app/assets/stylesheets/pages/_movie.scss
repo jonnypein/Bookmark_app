@@ -1,15 +1,22 @@
-.banner {
+// .banner {
+//   background-size: cover;
+//   background-position: center;
+//   height: 300px;
+//   margin-bottom: 20px;
+//   h1 {
+//     transform: translateY(35px) rotate(4deg);
+//     text-shadow: 3px 2px rgba(0, 0, 0, 0.3);
+//     font-size: 45px;
+//     font-family: 'Yellowtail', cursive;
+//  }
+// }
+.banner{
+  position: absolute;
+  width: 100%;
+  height: 100%;
   background-size: cover;
-  background-position: center;
-  height: 300px;
-  margin-bottom: 20px;
-  h1 {
-    transform: translateY(35px) rotate(4deg);
-    text-shadow: 3px 2px rgba(0, 0, 0, 0.3);
-    font-size: 45px;
-    font-family: 'Yellowtail', cursive;
- }
-}
+  background-position: center top;
+    }
 
 .card-product-movies {
 

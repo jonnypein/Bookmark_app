@@ -1,0 +1,13 @@
+<% if movies.count > 0 %>
+  <div id="suggestions-box">
+    <% movies.each do |movie| %>
+      <%= link_to movie_path(movie), class: 'suggestion no-decoration' do %>
+        <div class="autocomplete_suggestion">
+          <div style="flex: 1; margin-left: 10px;">
+            <p class="no-margin boldest small-text" style="max-width: 165px;"><%= movie.title %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

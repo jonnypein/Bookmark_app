@@ -1,5 +1,6 @@
 import "bootstrap";
 import 'slick-carousel/slick/slick.css';
+import './movie_search';
 import { initSlickCarousel } from './init_slick_carousel';
 
 initSlickCarousel('.carousel', {

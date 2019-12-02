@@ -15,6 +15,18 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
   end
 
+  def search_movies
+    # if params[:input].present?
+      @search_movies = Movie.where("title ILIKE ?", "%#{params[:input]}%")
+    # else
+    #   @search_products = policy_scope(Product).where(published: true)
+    # end
+    @query = params[:input]
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def movie_params
     params.require(:movie).permit(:title, :description, :genre, :year)
   end

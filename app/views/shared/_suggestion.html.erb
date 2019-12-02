@@ -1,0 +1,23 @@
+<% if movies.count > 0 %>
+  <div id="suggestions-box">
+    <% movies.each do |movie| %>
+      <%= link_to movie_path(movie), class: 'suggestion no-decoration' do %>
+        <div class="autocomplete_suggestion d-flex">
+          <div style="flex: 1; margin-left: 10px; display:flex;">
+            <%= image_tag movie.picture_url %>
+            <div class="moviesearchinfo d-flex flex-column">
+              <p class="no-margin boldest small-text" style="max-width: 165px; font-size: 16px; font-weight: 500;"><%= movie.title %></p>
+              <% end %>
+              <p style="font-size: 12px"><%= movie.genre %></p>
+              <p style="font-size: 12px"><%= movie.year %></p>
+            </div>
+            <%= link_to '<i class="fas fa-plus"></i>'.html_safe, movie_recommendations_path(movie), method: :post%>
+          </div>
+        </div>
+      <% end %>
+
+  </div>
+<% end %>
+
+
+<!-- -->

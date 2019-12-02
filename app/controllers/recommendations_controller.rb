@@ -17,6 +17,7 @@ class RecommendationsController < ApplicationController
 
     if @recommendation.save
       redirect_to user_path(current_user)
+
     else
       render "movies/index"
     end

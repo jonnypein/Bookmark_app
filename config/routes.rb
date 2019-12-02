@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
+
+  get '/search_movies', to: 'movies#search_movies'
+
   resources :movies, only: [:index, :show] do
     resources :recommendations, only: [:create]
     resources :bookmarks, only: [:create]

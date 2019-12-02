@@ -16,7 +16,7 @@
         <p><%= movie.description %></p>
         <p class="Movie_icone"> IMDB NETFLIX AMAZON PRIME</p>
 
-        <%= link_to '<i class="fas fa-thumbs-up"></i>'.html_safe, movie_recommendations_path(movie), method: :post %>
+        <%= link_to '<i class="fas fa-thumbs-up"></i>'.html_safe, movie_recommendations_path(movie), method: :post%>
 
        <%= link_to " <i class='fas fa-bookmark bookmark-icon'></i>".html_safe, movie_bookmarks_path(movie), method: :post  %></i>
 

@@ -73,10 +73,13 @@
             <% if @user == current_user %>
               <%= form_tag movies_path, method: :get do %>
                 <%= text_field_tag :query,
+
                 params[:query], class: "form-control",
                 placeholder: "Search for a movie to recommend"%>
                 <div id="button-submit-search-reco"><%= submit_tag " + " %></div>
+
               <% end %>
+              <div id="suggestions"></div>
             <% else %>
               <%= form_tag user_path(@user), method: :get do %>
                 <%= text_field_tag :query, params[:query], class: "form-control",

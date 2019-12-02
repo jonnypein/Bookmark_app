@@ -98,11 +98,13 @@
               <h2 id='movie-title-profile' ><%= recommendation.movie.title %></h2>
               <p><%= recommendation.movie.description %></p>
               <% if @user == current_user %>
-                <button id='add_a_tag'><%= link_to 'Create a new tag', new_recommendation_tag_path(recommendation) %></button>
+                <p id='has-reco'><%= @user.first_name %> has recommended this movie with the tags:</p>
+                <%= render 'shared/addtag', recommendation: @recommendation, tag: @tag %>
+                <button id='add_a_tag'><%= link_to "Delete this recommendation", recommendation_path(recommendation), method: :delete, data: {confirm: "Whatt Why?"}%></button>
               <% end %>
 
-
-              <div class='d-flex'>
+              <div class='d-flex tags'>
+    
                 <% recommendation.tags.each do |tag| %>
                   <% if @user == current_user %>
                     <div>

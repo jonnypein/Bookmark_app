@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @tag = Tag.new
     if params[:query].present?
       sql_query = "tags.name @@ :query"
       @recommendations = Recommendation.joins(:tags).where(sql_query, query: "%#{params[:query]}%")

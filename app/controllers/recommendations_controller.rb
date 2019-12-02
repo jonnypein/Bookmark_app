@@ -12,7 +12,6 @@ class RecommendationsController < ApplicationController
     @recommendation = Recommendation.new()
     @recommendation.user = current_user
     @movie = Movie.find(params[:movie_id])
-
     @recommendation.movie = @movie
 
     if @recommendation.save
@@ -27,6 +26,10 @@ class RecommendationsController < ApplicationController
       @recommendation = Recommendation.find(params[:id])
       @recommendation.destroy
       redirect_to user_path(current_user)
+    end
+
+    def show
+      @tag = Tag.new
     end
 
   # def recommedations_params

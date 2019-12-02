@@ -13,9 +13,15 @@ class TagsController < ApplicationController
     @recommendation = Recommendation.find(params[:recommendation_id])
     @tag.recommendation_id = @recommendation.id
     if @tag.save
-      redirect_to user_path(current_user)
+        respond_to do |format|
+        format.html { redirect_to user_path(current_user)}
+        format.js  # <-- will render `app/views/tags/create.js.erb`
+      end
     else
-      render "new/tag"
+        respond_to do |format|
+        format.html { render 'new/tag' }
+        format.js  # <-- idem
+      end
     end
   end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_27_122205) do
+ActiveRecord::Schema.define(version: 2019_12_02_115905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 2019_11_27_122205) do
     t.string "imdb_url"
     t.string "netflix_url"
     t.string "amazon_url"
+    t.text "storyline"
   end
 
   create_table "recommendations", force: :cascade do |t|
@@ -103,6 +104,7 @@ ActiveRecord::Schema.define(version: 2019_11_27_122205) do
     t.string "first_name"
     t.string "last_name"
     t.text "bio"
+    t.string "default_image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

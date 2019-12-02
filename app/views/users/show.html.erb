@@ -73,16 +73,18 @@
             <% if @user == current_user %>
               <%= form_tag movies_path, method: :get do %>
                 <%= text_field_tag :query,
-                params[:query], class: "form-control movielistid",
-                placeholder: "Search for a movie to recommend" %>
-                <div id="button-submit-search-reco"><%= submit_tag "Search now" %></div>
+
+                params[:query], class: "form-control",
+                placeholder: "Search for a movie to recommend"%>
+                <div id="button-submit-search-reco"><%= submit_tag " + " %></div>
+
               <% end %>
               <div id="suggestions"></div>
             <% else %>
               <%= form_tag user_path(@user), method: :get do %>
                 <%= text_field_tag :query, params[:query], class: "form-control",
                 placeholder: "search for a tag"%>
-                <div id="button-submit-search-reco"><%= submit_tag "Search", class: "btn btn-primary" %></div>
+                <div id="button-submit-search-reco-tag"><%= submit_tag "Search" %></div>
               <% end %>
             <% end %>
           </div>
@@ -102,6 +104,7 @@
               <% end %>
 
               <div class='d-flex tags'>
+    
                 <% recommendation.tags.each do |tag| %>
                   <% if @user == current_user %>
                     <div>
@@ -110,7 +113,10 @@
                         <p class='text-center'><%= link_to "Delete tag", tag_path(tag), method: :delete, data: {confirm: "Are you sure you want to delete?"}%></p>
                       <% end %>
                     </div>
-
+                  <% else %>
+                    <% if tag.name.present? %>
+                    <p class='text-center'><%= tag.name%></p>
+                  <% end %>
                   <% end %>
                 <% end %>
               </div>
@@ -137,6 +143,18 @@
               </div>
 
             </div>
+            <div class="right-info">
+              <% if @user == current_user %>
+                <button id='add_a_tag_delete'><%= link_to "Delete this recommendation", recommendation_path(recommendation), method: :delete, data: {confirm: "Whatt Why?"}%></button>
+              <% end %>
+              <div id="links">
+                <ul>
+                  <li class="imdb"><a href="https://www.imdb.com/title/tt0095765/?ref_=fn_al_tt_1"><img src="https://res.cloudinary.com/dtjblav7i/image/upload/v1575290384/imdb_fkuqhx.jpg" style='width:50px'></a></li>
+                  <li class="netflix"><a href="https://www.netflix.com/search?q=incep&jbv=70131314&jbp=0&jbr=0"><img src="https://res.cloudinary.com/dtjblav7i/image/upload/v1575290264/netflliw_fwehh5.png" style='width:80px'></a></li>
+                  <li class="amazon"><a href="https://www.amazon.co.uk/Aliens-Lan/dp/B00HNJSU1W/ref=sr_1_1?keywords=aliens&qid=1575294742&s=instant-video&sr=1-1"><img src="https://res.cloudinary.com/dtjblav7i/image/upload/v1575290073/amazon_logo_ffi0fs.png" style='width:100px'></a></li>
+                </ul>
+              </div>
+            </div>
           </div>
         <% end %>
       <!--/Recos-->
@@ -150,22 +168,15 @@
             <div class="card-product-infos-profile">
               <h2 ><%= bookmark.movie.title %></h2>
               <p><%= bookmark.movie.description %></p>
-              <div class="where-to-watch">
-                <% if bookmark.movie.imdb_url.present? %>
-                  <%= link_to bookmark.movie.imdb_url, target: "_blank" do %>
-                    <li><i class="fab fa-imdb"></i></li>
-                  <% end %>
-                <% end %>
-                <% if bookmark.movie.netflix_url.present? %>
-                  <%= link_to bookmark.movie.netflix_url, target: "_blank" do %>
-                    <li><img src="https://www.freepnglogos.com/uploads/netflix-logo-circle-png-5.png" alt="netflix" style="width:15px; height:15px;"></li>
-                  <% end %>
-                <% end %>
-                <% if bookmark.movie.amazon_url.present? %>
-                  <%= link_to bookmark.movie.amazon_url, target: "_blank" do %>
-                    <li><i class="fab fa-amazon"></i></li>
-                  <% end %>
-                <% end %>
+            </div>
+            <div id="right-info-bookmark">
+              <button id='add_a_tag_delete'><%= link_to "Delete this Bookmark", bookmark_path(bookmark), method: :delete, data: {confirm: "Whatt Why?"}%></button>
+              <div id="links">
+                <ul>
+                  <li class="imdb"><a href="https://www.imdb.com/title/tt0095765/?ref_=fn_al_tt_1"><img src="https://res.cloudinary.com/dtjblav7i/image/upload/v1575290384/imdb_fkuqhx.jpg" style='width:50px'></a></li>
+                  <li class="netflix"><a href="https://www.netflix.com/search?q=incep&jbv=70131314&jbp=0&jbr=0"><img src="https://res.cloudinary.com/dtjblav7i/image/upload/v1575290264/netflliw_fwehh5.png" style='width:80px'></a></li>
+                  <li class="amazon"><a href="https://www.amazon.co.uk/Aliens-Lan/dp/B00HNJSU1W/ref=sr_1_1?keywords=aliens&qid=1575294742&s=instant-video&sr=1-1"><img src="https://res.cloudinary.com/dtjblav7i/image/upload/v1575290073/amazon_logo_ffi0fs.png" style='width:100px'></a></li>
+                </ul>
               </div>
             </div>
           </div>

@@ -11,6 +11,23 @@ body {
   background-color: white;
 }
 
+.line-seporater{
+
+  height: 1px;
+  background: linear-gradient(130.62deg, #717070 9.56%, #ffffff 92.35%);
+  margin-left: 22px;
+}
+
+.recommended-title{
+
+  font-size: 1.5rem;
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 2px;
+    color: #6B6B6B;
+    margin-left: 21px;
+    margin-top: 55px;
+}
+
 .items{
   position: fixed;
   top: 50%;

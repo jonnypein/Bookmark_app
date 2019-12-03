@@ -31,6 +31,7 @@ def scrape_movie(url)
   m = doc.search("h1").text.match /(?<title>.*)[[:space:]]\((?<year>\d{4})\)/
   title = m[:title]
   year = m[:year].to_i
+  # storyline = [:storyline]
   picture_url = doc.search(".poster a img").first["src"]
   storyline = doc.search(".summary_text").text.strip
   director = doc.search("h4:contains('Director:') + a").text

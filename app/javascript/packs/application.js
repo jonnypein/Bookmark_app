@@ -32,3 +32,6 @@ initSlickCarousel('.carousel', {
       }
     }]
   });
+
+import { loadDynamicBannerText } from '../components/banner';
+loadDynamicBannerText();

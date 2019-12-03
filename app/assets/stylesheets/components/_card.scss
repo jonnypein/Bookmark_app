@@ -55,9 +55,11 @@
   margin-bottom: 10px;
   padding-top: 11px;
   padding-left: 10px;
+  padding-right: 20px;
 
   img{
     margin-right: 11px;
+    margin-left: 10px;
     width: 70px;
     height: 70px;
     border-radius: 50%;
@@ -69,10 +71,12 @@
   h3{
     font-weight: bold;
     font-size: 13px;
+    margin-left: 10px;
   }
   p{
     font-size: 13px;
     font-weight: 200;
+    margin-left: 10px;
   }
   .green{
     color: #82B5A5;
@@ -258,5 +262,6 @@
 .card-text-info {
   margin-left: 15px;
   width: 65vw;
+}
+}
 
-}}

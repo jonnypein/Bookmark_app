@@ -27,8 +27,12 @@ class TagsController < ApplicationController
 
   def destroy
     @tag = Tag.find(params[:id])
-    @tag.destroy
-    redirect_to user_path(current_user)
+    if @tag.destroy
+     respond_to do |format|
+        format.html { redirect_to user_path(current_user)}
+        format.js  # <-- will render `app/views/tags/create.js.erb`
+      end
+    end
   end
 
 

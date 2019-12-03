@@ -31,7 +31,7 @@
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
-  margin-bottom: 0;
+  margin-bottom: 0px;
   margin-top: 8px;
 }
 
@@ -258,7 +258,7 @@ margin-left: 140px;
   width: 60vw;
   height: 60px;
   margin-top: 70px;
-  margin: 0 auto;
+  margin: 20px auto;
   padding-top: 19px;
 }
 
@@ -343,3 +343,21 @@ a:link {
     margin: 20px;
   }
 
+#bookmark-from-friends {
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+
+   a {
+    color: grey;
+    height: 20px;
+    widht: 20px;
+    padding: 6px;
+
+  }
+
+  a:hover {
+    color: #F9D269;
+    opacity: 0.6;
+  }
+}

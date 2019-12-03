@@ -96,7 +96,7 @@
             <img src="<%= recommendation.movie.picture_url%> "/>
             <div class="card-product-infos-profile">
               <h2 id='movie-title-profile' ><%= recommendation.movie.title %></h2>
-              <p><%= recommendation.movie.description %></p>
+              <p><%= recommendation.movie.storyline %></p>
               <% if @user == current_user %>
                 <p id='has-reco'><%= @user.first_name %> has recommended this movie with the tags:</p>
                 <button id='add_a_tag'>
@@ -141,13 +141,21 @@
                       <% end %>
                     </div>
                   <% else %>
+                   <div class='tag'><%= tag.name %></div>
                     <% if tag.name.present? %>
-                    <p class='text-center'><%= tag.name%></p>
-                  <% end %>
+                    <% end %>
                   <% end %>
                 <% end %>
               </div>
+              <div id="bookmark-from-friends">
+                  <% if @user != current_user && !current_user.bookmarks.where(movie: recommendation.movie).any? %>
+                    <%= link_to ' Add to Bookmarks', movie_bookmarks_path(recommendation), method: :post %>
+                    <%= link_to ' Add to Recommendations', movie_bookmarks_path(recommendation), method: :post %>
+                  <% end %>
+                </div>
 
+
+              <!--
               <div class="where-to-watch">
                 <% if recommendation.movie.imdb_url.present? %>
                   <%= link_to recommendation.movie.imdb_url, target: "_blank" do %>
@@ -161,13 +169,10 @@
                 <% end %>
                 <% if recommendation.movie.amazon_url.present? %>
                   <%= link_to recommendation.movie.amazon_url, target: "_blank" do %>
-                    <li><i class="fab fa-amazon"></i></li>
                   <% end %>
                 <% end %>
-                <% if @user != current_user && !current_user.bookmarks.where(movie: recommendation.movie).any? %>
-                  <%= link_to 'bookmark', movie_bookmarks_path(recommendation), method: :post %>
-                <% end %>
-              </div>
+                -->
+
 
             </div>
             <div class="right-info">
@@ -194,7 +199,7 @@
             <img src="<%= bookmark.movie.picture_url%> "/>
             <div class="card-product-infos-profile">
               <h2 ><%= bookmark.movie.title %></h2>
-              <p><%= bookmark.movie.description %></p>
+              <p><%= bookmark.movie.storyline %></p>
             </div>
             <div id="right-info-bookmark">
               <button id='add_a_tag_delete'><%= link_to "Delete this Bookmark", bookmark_path(bookmark), method: :delete, data: {confirm: "Whatt Why?"}%></button>

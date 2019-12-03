@@ -98,18 +98,14 @@
               <h2 id='movie-title-profile' ><%= recommendation.movie.title %></h2>
               <p><%= recommendation.movie.storyline %></p>
               <% if @user == current_user %>
-                <p id='has-reco'><%= @user.first_name %> has recommended this movie with the tags:</p>
-                <button id='add_a_tag'>
-                  <%= link_to "Delete this recommendation", recommendation_path(recommendation), method: :delete, data: {confirm: "Whatt Why?"}%>
-                </button>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addTagModal_<%= recommendation.id %>">
-                  Add Tag
+                <button type="button" id='add_a_tag' data-toggle="modal" data-target="#addTagModal_<%= recommendation.id %>">
+                  Add a new tag
                 </button>
                 <div class="modal fade" id="addTagModal_<%= recommendation.id %>" tabindex="-1" role="dialog" aria-labelledby="addTagModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h5 class="modal-title">Modal title</h5>
+                          <h5 class="modal-title">Create a tag</h5>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                           </button>
@@ -137,7 +133,7 @@
                     <div>
                       <div class='tag'><%= tag.name %></div>
                       <% if tag.name.present? %>
-                        <p class='text-center'><%= link_to "Delete tag", tag_path(tag), method: :delete, data: {confirm: "Are you sure you want to delete?"}%></p>
+                        <p class='text-center'id='remove-tage-icone'><strong><%= link_to " x ", tag_path(tag), method: :delete, data: {confirm: "Are you sure you want to delete this tag?"}%></strong></p>
                       <% end %>
                     </div>
                   <% else %>
@@ -177,7 +173,7 @@
             </div>
             <div class="right-info">
               <% if @user == current_user %>
-                <button id='add_a_tag_delete'><%= link_to "Delete this recommendation", recommendation_path(recommendation), method: :delete, data: {confirm: "Whatt Why?"}%></button>
+                <button id='add_a_tag_delete'><%= link_to "Delete recommendation", recommendation_path(recommendation), method: :delete, data: {confirm: "Are you sure? Do you want to delete this recommendation?"}%></button>
               <% end %>
               <div id="links">
                 <ul>

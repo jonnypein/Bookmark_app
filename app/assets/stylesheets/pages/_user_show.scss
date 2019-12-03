@@ -15,7 +15,7 @@
 
 .card-product-profile img {
   height: 100%;
-  width: 120px;
+  width: 150px;
   object-fit: cover;
   margin: 20px;
   border-radius: 10px;
@@ -229,7 +229,7 @@ margin-left: 140px;
 }
 
 #movie-title-profile {
-  font-size: 30px;
+  font-size: 20px;
 }
 
 #has-reco {
@@ -361,3 +361,10 @@ a:link {
     opacity: 0.6;
   }
 }
+
+#remove-tage-icone {
+    font-size: 10px;
+    margin-top: 0px;
+  }
+
+

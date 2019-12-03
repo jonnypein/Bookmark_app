@@ -207,7 +207,7 @@
 
 .autocomplete_suggestion{
   padding: 5px;
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: #FFFFFF;
   border-bottom: solid 1.3px rgba(0, 0, 0, 0.08);
   width: 100%;
   color: rgba(0, 0, 0, 0.6);
@@ -229,7 +229,13 @@
 }
 }
 
+
+#suggestions{
+    z-index: 1;
+    position: relative;
+
 .card-text-info {
   margin-left: 15px;
   width: 65vw;
+
 }

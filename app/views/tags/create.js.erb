@@ -4,7 +4,7 @@ function refreshForm(innerHTML) {
 }
 
 function addTag(newTag) {
-  const tags = document.querySelector('.tags');
+  const tags = document.querySelector('.tags_<%= @recommendation.id %>');
   tags.insertAdjacentHTML('beforeend', newTag);
 }
 

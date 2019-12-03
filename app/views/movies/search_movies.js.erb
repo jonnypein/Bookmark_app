@@ -3,3 +3,4 @@ suggestionsContainer.innerHTML = ''
 if (<%= @query.length > 2 %>) {
   suggestionsContainer.innerHTML = `<%= j render 'shared/suggestion', movies: @search_movies %>`
 }
+console.log("hello")

@@ -74,7 +74,7 @@
               <%= form_tag movies_path, method: :get do %>
                 <%= text_field_tag :query,
 
-                params[:query], class: "form-control",
+                params[:query], autocomplete: 'off', class: "form-control movielistid",
                 placeholder: "Search for a movie to recommend"%>
                 <div id="button-submit-search-reco"><%= submit_tag " + " %></div>
 
@@ -99,12 +99,39 @@
               <p><%= recommendation.movie.storyline %></p>
               <% if @user == current_user %>
                 <p id='has-reco'><%= @user.first_name %> has recommended this movie with the tags:</p>
-                <%= render 'shared/addtag', recommendation: @recommendation, tag: @tag %>
-                <button id='add_a_tag'><%= link_to "Delete this recommendation", recommendation_path(recommendation), method: :delete, data: {confirm: "Whatt Why?"}%></button>
+                <button id='add_a_tag'>
+                  <%= link_to "Delete this recommendation", recommendation_path(recommendation), method: :delete, data: {confirm: "Whatt Why?"}%>
+                </button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addTagModal_<%= recommendation.id %>">
+                  Add Tag
+                </button>
+                <div class="modal fade" id="addTagModal_<%= recommendation.id %>" tabindex="-1" role="dialog" aria-labelledby="addTagModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Modal title</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <%= simple_form_for([recommendation, @tag], remote: true) do |f| %>
+                            <%= f.input :name %>
+                        </div>
+                        <div class="modal-footer">
+                          <button class="btn btn-secondary">Create a tag</button>
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <% end %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
               <% end %>
 
-              <div class='d-flex tags'>
-    
+
+              <div class='d-flex tags_<%= recommendation.id %>'>
+
                 <% recommendation.tags.each do |tag| %>
                   <% if @user == current_user %>
                     <div>

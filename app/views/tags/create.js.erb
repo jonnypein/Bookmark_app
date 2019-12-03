@@ -5,8 +5,13 @@ function refreshForm(innerHTML) {
 
 function addTag(newTag) {
   const tags = document.querySelector('.tags_<%= @recommendation.id %>');
+  // const deleteButton = document.querySelector('.tags_<%= @recommendation.id %>')
   tags.insertAdjacentHTML('beforeend', newTag);
+  // deleteButton.insertAdjacentHTML('Afterend', '<p class="text-center"id="remove-tage-icone"><strong><%= link_to " x ", tag_path(@tag), method: :delete, remote: true, data: {confirm: "Are you sure you want to delete this tag?"}%></strong></p>' )
 }
+
+
+
 
 function closeOneModal(modalId) {
 
@@ -23,9 +28,9 @@ function closeOneModal(modalId) {
 
      // remove opened modal backdrop
       document.body.removeChild(modalBackdrops[0]);
-  }
+}
 
 
-newTag = "<div class='tag'><%= @tag.name %></div>"
+newTag = `<div class='tag_<%= @tag.id %>'><div class='tag'><%= @tag.name %></div><p class='text-center'id='remove-tage-icone'><strong><%= link_to ' x ', tag_path(@tag), method: :delete, remote: true, data: {confirm: 'Are you sure you want to delete this tag?'}%></strong></p></div>`
 addTag(newTag);
 closeOneModal("addTagModal_<%= @recommendation.id %>")

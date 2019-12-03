@@ -98,7 +98,6 @@
               <h2 id='movie-title-profile' ><%= recommendation.movie.title %></h2>
               <p><%= recommendation.movie.storyline %></p>
               <% if @user == current_user %>
-                <p id='has-reco'><%= @user.first_name %> has recommended this movie with the tags:</p>
                 <button type="button" id='add_a_tag' data-toggle="modal" data-target="#addTagModal_<%= recommendation.id %>">
                   Add a new tag
                 </button>
@@ -131,11 +130,13 @@
 
                 <% recommendation.tags.each do |tag| %>
                   <% if @user == current_user %>
-                    <div>
-                      <div class='tag'><%= tag.name %></div>
-                      <% if tag.name.present? %>
-                        <p class='text-center'id='remove-tage-icone'><strong><%= link_to " x ", tag_path(tag), method: :delete, data: {confirm: "Are you sure you want to delete this tag?"}%></strong></p>
-                      <% end %>
+                    <div class='tag_<%= tag.id %>'>
+                      <div class='tag'>
+                        <%= tag.name %>
+                      </div>
+                        <% if tag.name.present? %>
+                          <p class='text-center'id='remove-tage-icone'><strong><%= link_to " x ", tag_path(tag), method: :delete, remote: true, data: {confirm: "Are you sure you want to delete this tag?"}%></strong></p>
+                        <% end %>
                     </div>
                   <% else %>
                    <div class='tag'><%= tag.name %></div>

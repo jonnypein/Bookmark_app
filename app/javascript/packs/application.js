@@ -2,6 +2,7 @@ import "bootstrap";
 import 'slick-carousel/slick/slick.css';
 import './movie_search';
 import { initSlickCarousel } from './init_slick_carousel';
+import { loadDynamicBannerText } from '../components/banner';
 
 initSlickCarousel('.carousel', {
   infinite: true,
@@ -30,8 +31,13 @@ initSlickCarousel('.carousel', {
       settings: {
         slidesToShow: 4
       }
-    }]
-  });
+    }
+  ]
+});
 
-import { loadDynamicBannerText } from '../components/banner';
-loadDynamicBannerText();
+const letsGoInfo = document.querySelector('.lets-go-info');
+if (letsGoInfo) {
+  loadDynamicBannerText();
+}
+
+

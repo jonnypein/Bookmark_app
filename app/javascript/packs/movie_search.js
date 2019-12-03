@@ -14,7 +14,7 @@ $('.movielistid').keyup(function() {
 
 const bookmarks = document.querySelectorAll('.add-to-bookmarks');
 
-bookmarks.forEach(bookmark => {
+bookmarks.forEach((bookmark) => {
   bookmark.addEventListener("click", () => {
     console.log('clicked');
      bookmark.innerHTML = "Bookmarked";
@@ -24,7 +24,7 @@ bookmarks.forEach(bookmark => {
 
 const recommendations = document.querySelectorAll('.add-to-recommendations');
 
-recommendations.forEach(recommendation => {
+recommendations.forEach((recommendation) => {
   recommendation.addEventListener("click", () => {
     recommendation.innerHTML = "Recommended";
   });

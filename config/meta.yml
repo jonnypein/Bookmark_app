@@ -1,0 +1,5 @@
+meta_product_name: "Bookmark"
+meta_title: "Bookmark - Love it, Share it"
+meta_description: "Share your recommendations"
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@Bookmark_twitter_account"   # required for Twitter Cards

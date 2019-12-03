@@ -1,0 +1,5 @@
+<%= simple_form_for([@recommendations[0], @tag], remote: true) do |f| %>
+  <%= f.input :name %>
+  <button style="margin-left: 45px; margin-bottom: 20px" type="submit" class="btn btn-secondary">Create a tag</button>
+<% end %>
+

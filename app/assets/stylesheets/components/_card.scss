@@ -12,8 +12,6 @@
     width: 100px;
     object-fit: cover;
     object-position: top;
-
-
   }
 
   a{
@@ -63,6 +61,8 @@
     width: 70px;
     height: 70px;
     border-radius: 50%;
+    object-fit: cover;
+    margin-top: -10px;
 
   }
 
@@ -85,6 +85,13 @@
     height: 70px;
     border-radius: 50%;
   }
+  a{
+    color: #82B5A5;
+
+  }
+  a:hover{
+    color: #5a7d72;
+  }
 }
 
 .recommendations-title-box{
@@ -101,6 +108,8 @@
     font-family: 'Bebas Neue', cursive;
     letter-spacing: 2px;
     margin: 20px;
+
+    margin-left: 20px;
 
   }
 }
@@ -215,3 +224,39 @@
   margin-right:110px;
 }}
 
+
+
+.autocomplete_suggestion{
+  padding: 5px;
+  background-color: #FFFFFF;
+  border-bottom: solid 1.3px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  color: rgba(0, 0, 0, 0.6);
+
+  img{
+    width: 50px;
+    height: 80px;
+    margin-right: 5px;
+  }
+  p{
+    margin: 0;
+
+  }
+}
+
+#suggestions-box{
+  a{
+  text-decoration: none;
+}
+}
+
+
+#suggestions{
+    z-index: 1;
+    position: relative;
+
+.card-text-info {
+  margin-left: 15px;
+  width: 65vw;
+
+}}

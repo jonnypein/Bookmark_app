@@ -55,9 +55,11 @@
   margin-bottom: 10px;
   padding-top: 11px;
   padding-left: 10px;
+  padding-right: 20px;
 
   img{
     margin-right: 11px;
+    margin-left: 10px;
     width: 70px;
     height: 70px;
     border-radius: 50%;
@@ -69,10 +71,12 @@
   h3{
     font-weight: bold;
     font-size: 13px;
+    margin-left: 10px;
   }
   p{
     font-size: 13px;
     font-weight: 200;
+    margin-left: 10px;
   }
   .green{
     color: #82B5A5;
@@ -105,7 +109,12 @@
     font-weight: bold;
     font-size: 28px;
     color:white;
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 2px;
+    margin: 20px;
+
     margin-left: 20px;
+
   }
 }
 
@@ -133,9 +142,13 @@
   h3{
     color: white;
     padding: 40px;
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 2px;
+    font-size: 40px;
   }
 
 }
+
 
 .lets-go-button{
   border: 1px solid #FFFFFF !important;
@@ -188,12 +201,17 @@
       bottom: 300px;
       left: 90px;
       font-weight: 900;
+      font-family: 'Bebas Neue', cursive;
+      letter-spacing: 3px;
     }
     h2{
+
       position: absolute;
       bottom: 256px;
       left: 90px;
       font-weight: 900;
+      font-family: 'Bebas Neue', cursive;
+      letter-spacing: 3px;
 
 
     }
@@ -244,5 +262,6 @@
 .card-text-info {
   margin-left: 15px;
   width: 65vw;
+}
+}
 
-}}

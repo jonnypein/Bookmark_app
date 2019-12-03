@@ -1,18 +1,26 @@
 <div class="container pt-4">
 
   <div class="lets-go mb-4">
-    <div class="lets-go-info d-flex flex-column" >
-      <h3>Bookmark keeping you in the loop</h3>
+    <div class="lets-go-info d-flex flex-column align-items-center" >
+
+      <h3 style="min-width: 36vw;">
+        <span id="banner-typed-text"></span>
+      </h3>
+
 
       <%= link_to recommendations_path  :action => 'go' do %>
-      <div class="lets-go-button">Let's Go</div>
+      <!-- <div class="lets-go-button">Let's Go</div> -->
+        <div class="my-div">
+          <button class="learn-more"><span>Lets go</span></button>
+        </div>
       <% end %>
     </div>
 
     <%= cl_image_tag "https://res.cloudinary.com/dtjblav7i/image/upload/v1574955096/illustrations_f9yo5s.svg", class:'lets-go-picture' %>
   </div>
 
-  <h4>Most recommended movies this month</h4>
+  <h4 class="recommended-title">Most recommended movies this month</h4>
+  <div class="line-seporater"></div>
 
   <div class="carousel">
     <% @movies.each do |movie| %>

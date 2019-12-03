@@ -98,6 +98,10 @@
     font-weight: bold;
     font-size: 28px;
     color:white;
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 2px;
+    margin: 20px;
+
   }
 }
 
@@ -125,9 +129,13 @@
   h3{
     color: white;
     padding: 40px;
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 2px;
+    font-size: 40px;
   }
 
 }
+
 
 .lets-go-button{
   border: 1px solid #FFFFFF !important;
@@ -180,12 +188,17 @@
       bottom: 300px;
       left: 90px;
       font-weight: 900;
+      font-family: 'Bebas Neue', cursive;
+      letter-spacing: 3px;
     }
     h2{
+
       position: absolute;
       bottom: 256px;
       left: 90px;
       font-weight: 900;
+      font-family: 'Bebas Neue', cursive;
+      letter-spacing: 3px;
 
 
     }

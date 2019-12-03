@@ -1,18 +1,18 @@
 <div class="container">
   <br>
   <br>
-  <div class="recommendations-title-box d-flex align-items-center"><h2>Last Recommendations by people you know</h2></div>
+  <div class="recommendations-title-box d-flex align-items-center"><h2>Last Recommendations by people you follow</h2></div>
   <% @recommendations.each do |r| %>
     <div class="recomendation-card d-flex align-items-center">
-      <% if current_user.photo.attached? %>
-          <%= cl_image_tag current_user.photo.key %>
+      <% if r.user.photo.attached? %>
+          <%= cl_image_tag r.user.photo.key %>
       <% else %>
           <img src="https://pixy.org/download/301929/" class="recommendation-card-avatar">
       <% end %>
 
       <div class="card-text-info d-flex flex-column">
         <h3><%= r.movie.title %></h3>
-        <p><%= r.movie.description %></p>
+        <p><%= r.movie.storyline %></p>
         <div class="tag-in-line d-flex justify-content-between">
         <p class="green"><%= r.user.first_name %> has recommended this movie</p>
           <% if r.tags.present? %>

@@ -12,8 +12,6 @@
     width: 100px;
     object-fit: cover;
     object-position: top;
-
-
   }
 
   a{
@@ -63,6 +61,8 @@
     width: 70px;
     height: 70px;
     border-radius: 50%;
+    object-fit: cover;
+    margin-top: -10px;
 
   }
 
@@ -98,6 +98,7 @@
     font-weight: bold;
     font-size: 28px;
     color:white;
+    margin-left: 20px;
   }
 }
 
@@ -226,4 +227,9 @@
   a{
   text-decoration: none;
 }
+}
+
+.card-text-info {
+  margin-left: 15px;
+  width: 65vw;
 }

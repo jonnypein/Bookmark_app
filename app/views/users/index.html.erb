@@ -11,8 +11,8 @@
   <% @users.each do |user| %>
     <div class="friend-card d-flex justify-content-between">
       <div class="friend-card-avatar">
-        <% if current_user.photo.attached? %>
-          <%= cl_image_tag current_user.photo.key %>
+        <% if user.photo.attached? %>
+          <%= cl_image_tag user.photo.key %>
         <% else %>
           <!-- <img src="https://pixy.org/download/301929/" class="friend-card-avatar"> -->
           <img src="<%= user.default_image %>" class="friend-card-avatar">

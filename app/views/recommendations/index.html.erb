@@ -15,6 +15,7 @@
         <p><%= r.movie.storyline %></p>
         <div class="tag-in-line d-flex">
         <p class="green"><%= r.user.first_name %> has recommended this movie with the tags : </p>
+
           <% if r.tags.present? %>
               <% r.tags.each do |tag| %>
                 <div class="tag-card"><%= tag.name.downcase.capitalize %></div>

@@ -2,16 +2,16 @@
 
 <div class="container pt-4">
 
-  <div class="lets-go mb-4">
+  <div class="cinema-img mb-4">
     <div class="lets-go-info d-flex flex-column" >
       <h1>List of movies</h1>
     </div>
-      <%= cl_image_tag "https://res.cloudinary.com/dtjblav7i/image/upload/v1574955096/illustrations_f9yo5s.svg", class:'lets-go-picture' %>
+    <%= cl_image_tag 'https://res.cloudinary.com/dtjblav7i/image/upload/v1575367714/Group_1_eocwmx.png' %>
+    <%#= cl_image_tag "https://res.cloudinary.com/dtjblav7i/image/upload/v1575301090/pablo-cinema_1_qehhg3.png", class:'lets-go-picture' %>
   </div>
-</div>
-
- <div class="movie-grid">
-<% @movies.each do |movie| %>
+  </div>
+<div class="movie-grid">
+  <% @movies.each do |movie| %>
   <!-- <div class="col-4"> -->
 
     <div class="card-product-movies">
@@ -19,12 +19,22 @@
       <div class="card-product-infos-movies">
         <h2 ><%= movie.title %></h2>
         <p><%= movie.description %></p>
-        <p class="Movie_icone"> IMDB NETFLIX AMAZON PRIME</p>
-        <%= link_to '<i class="fas fa-thumbs-up"></i>'.html_safe, movie_recommendations_path(movie), method: :post%>
-       <%= link_to " <i class='fas fa-bookmark bookmark-icon'></i>".html_safe, movie_bookmarks_path(movie), method: :post  %>
+        <p id="storyline-movies"><%= movie.storyline %></p>
+
+
+        <%= link_to "Recommend", movie_recommendations_path(movie), method: :post, class: "recommend-btn" %>
+
+        <%= link_to movie_bookmarks_path(movie), method: :post do %>
+          <%= image_tag "bookmark.png", alt: "alttext", class: "bookmark-icon" %>
+        <% end %>
+
+
       </div>
     </div>
 
-<% end %>
-</div>
+
+    <% end %>
+  </div>
+
+
 

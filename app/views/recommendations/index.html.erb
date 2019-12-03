@@ -14,7 +14,9 @@
         <h3><%= r.movie.title %></h3>
         <p><%= r.movie.storyline %></p>
         <div class="tag-in-line d-flex justify-content-between">
-        <p class="green"><%= r.user.first_name %> has recommended this movie</p>
+        <p class="green"><%= link_to user_path(r.user) do %>
+        <%= r.user.first_name %>
+        <% end %> user has recommended this movie</p>
           <% if r.tags.present? %>
               <% r.tags.each do |tag| %>
                 <div class="tag-card"><%= tag.name.downcase.capitalize %></div>

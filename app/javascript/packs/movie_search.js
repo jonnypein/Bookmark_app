@@ -12,7 +12,23 @@ $('.movielistid').keyup(function() {
 
 
 
+const bookmarks = document.querySelectorAll('.add-to-bookmarks');
 
+bookmarks.forEach(bookmark => {
+  bookmark.addEventListener("click", () => {
+    console.log('clicked');
+     bookmark.innerHTML = "Bookmarked";
+  });
+});
+
+
+const recommendations = document.querySelectorAll('.add-to-recommendations');
+
+recommendations.forEach(recommendation => {
+  recommendation.addEventListener("click", () => {
+    recommendation.innerHTML = "Recommended";
+  });
+});
 
 
 

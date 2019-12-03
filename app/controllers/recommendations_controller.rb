@@ -24,8 +24,12 @@ class RecommendationsController < ApplicationController
 
     def destroy
       @recommendation = Recommendation.find(params[:id])
-      @recommendation.destroy
-      redirect_to user_path(current_user)
+      if @recommendation.destroy
+        respond_to do |format|
+        format.html { redirect_to user_path(current_user)}
+        format.js
+        end
+      end
     end
 
     def show

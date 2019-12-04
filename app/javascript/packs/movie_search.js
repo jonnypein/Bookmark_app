@@ -10,8 +10,6 @@ $('.movielistid').keyup(function() {
   })
 });
 
-
-
 const bookmarks = document.querySelectorAll('.add-to-bookmarks');
 
 bookmarks.forEach((bookmark) => {

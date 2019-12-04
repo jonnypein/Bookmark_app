@@ -5,7 +5,10 @@
   <div id="container_profile_card_my_profile">
     <div id="text_profile_card">
       <p id="profile_name"><strong><%= @user.first_name %> <%= @user.last_name %></strong></p>
-      <p id="profile_bio"><%= @user.bio %></p>
+      <p id="profile_bio"><%= @user.bio.truncate(30) -%>
+</p>
+
+
       <div class="social">
         <p class="d-inline">Followers <strong><%= @user.followers_by_type_count('User') %></strong></p>
         <p class="d-inline">Following <strong><%= @user.all_follows.length %></strong>

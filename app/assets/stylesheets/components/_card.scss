@@ -46,6 +46,10 @@
 
   }
 
+  i:hover{
+    color:#F2C657;
+  }
+
 }
 
 
@@ -234,8 +238,11 @@
   padding: 5px;
   background-color: #FFFFFF;
   border-bottom: solid 1.3px rgba(0, 0, 0, 0.08);
-  width: 100%;
+  width: 79%;
   color: rgba(0, 0, 0, 0.6);
+  a {
+    text-decoration: none;
+  }
 
   img{
     width: 50px;
@@ -246,6 +253,13 @@
     margin: 0;
 
   }
+
+  i{
+    color: #F2C657;
+    position: absolute;
+    right: 200px;
+  }
+
 }
 
 #suggestions-box{
@@ -297,6 +311,17 @@
   display: flex;
   justify-content: center;
 
+}
+
+.social-info:hover{
+  color:#F2C657;
+  cursor: pointer;
+
+}
+
+.about-info:hover{
+  color:#F2C657;
+  cursor: pointer;
 }
 
 // #recommendbutton-<%= movie.id%> {

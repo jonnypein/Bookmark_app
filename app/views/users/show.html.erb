@@ -80,8 +80,9 @@
             <% if @user == current_user %>
              <div class="p-2 bd-highlight"><%= form_tag movies_path, method: :get do %>
                 <%= text_field_tag :query,
-
                 params[:query], autocomplete: 'off', class: "form-control movielistid",
+
+
                 placeholder: "Search for a movie to recommend"%></div>
                <div class="p-2 bd-highlight"><div id="button-submit-search-reco"><%= submit_tag " + " %></div></div>
 
@@ -89,9 +90,10 @@
             </div>
               <div id="suggestions"></div>
             <% else %>
+
             <div class="d-flex flex-row bd-highlight mb-2">
               <div class="p-2 bd-highlight"><%= form_tag user_path(@user), method: :get do %>
-                <%= text_field_tag :query, params[:query], class: "form-control",
+                <%= text_field_tag :query, params[:query],autocomplete: 'off', class: "form-control",
                 placeholder: "search for a tag"%></div>
              <div class="p-2 bd-highlight"><div id="button-submit-search-reco-tag"><%= submit_tag "Search" %></div></div>
               <% end %>
@@ -158,7 +160,7 @@
               <div id="bookmark-from-friends">
                   <% if @user != current_user && !current_user.bookmarks.where(movie: recommendation.movie).any? %>
                     <%= link_to ' Add to Bookmarks', movie_bookmarks_path(recommendation.movie), method: :post, :remote => true, class: "add-to-bookmarks" %>
-                    <%= link_to ' Add to Recommendations', movie_recommendations_path(recommendation), method: :post, :remote => true, class: "add-to-recommendations" %>
+                    <%= link_to ' Add to Recommendations', movie_recommendations_path(recommendation.movie), method: :post, :remote => true, class: "add-to-recommendations" %>
                   <% end %>
                 </div>
 

@@ -65,6 +65,8 @@
   border-radius: 10px;
   margin: 10px;
   border: 1px solid lightgrey;
+  position: relative;
+
 
   img {
     width: 130px;
@@ -181,6 +183,12 @@
   font-weight: 2px;
 
   font-weight: lighter;
+  position: absolute;
+  bottom: 10px;
+  right: 36px;
+
+
+
 
 
 } }

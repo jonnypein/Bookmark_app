@@ -77,6 +77,10 @@
     font-size: 16px;
     font-weight: bold;
     width: 80%;
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 2px;
+
+
 
 
   }
@@ -168,14 +172,22 @@
   margin: 5px;
   padding: 6px 16px;
   color: #f1c557;
+
+  transition: background-color 350ms;
+
+&:hover {
+  background-color: #f1c557
+  // font-weight: 2px;
+
   font-weight: lighter;
 
-  &:hover {
 
-    color: #f1c557;
-    text-decoration: none;
-  }
+
 }
+
+
+
+
 
 #storyline-movies {
   font-size: 12px;

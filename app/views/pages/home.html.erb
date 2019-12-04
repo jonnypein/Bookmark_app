@@ -24,10 +24,37 @@
 
   <div class="carousel">
     <% @movies.each do |movie| %>
-      <%= image_tag movie.picture_url, class:'movie-picture' %>
+      <%= image_tag movie.picture_url, class:'movie-picture', data: { toggle: 'modal', target: '#modal' + movie.id.to_s} %>
+
     <% end %>
   </div>
 </div>
+
+<% @movies.each do |movie| %>
+  <div class="modal fade" id="modal<%= movie.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content info-modal">
+        <div class="modal-header modal-head">
+          <h5 class="modal-title title-modal" id="exampleModalLabel"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h2><%= movie.title %></h2>
+          <p><%= movie.description %></p>
+          <p><%= movie.storyline %></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<!-- Modal -->
 
 
 <% if !user_signed_in? %>

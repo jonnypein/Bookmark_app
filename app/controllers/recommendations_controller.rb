@@ -15,8 +15,10 @@ class RecommendationsController < ApplicationController
     @recommendation.movie = @movie
 
     if @recommendation.save
-      redirect_to user_path(current_user)
-
+       respond_to do |format|
+        format.html { redirect_to user_path(current_user)}
+        format.js
+      end
     else
       render "movies/index"
     end

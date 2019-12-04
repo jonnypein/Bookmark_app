@@ -5,7 +5,10 @@ class BookmarksController < ApplicationController
     @bookmark.movie = @movie
     @bookmark.user = current_user
     if @bookmark.save
-      redirect_to bookmarks_path
+      respond_to do |format|
+        format.html { redirect_to user_path(current_user)}
+        format.js
+      end
     else
       render "movies#index"
     end

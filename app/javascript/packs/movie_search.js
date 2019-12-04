@@ -29,6 +29,26 @@ recommendations.forEach((recommendation) => {
 });
 
 
+// const recommendmoviepages = document.querySelectorAll('.recommmendmoviepage');
+
+// recommendmoviepages.forEach((recommendmoviepage) => {
+//   recommendmoviepage.addEventListener("click", () => {
+//     console.log('clicked');
+//      recommendmoviepage.innerHTML = "Recommended";
+//   });
+// });
+
+
+// const bookmarkmoviepages = document.querySelectorAll('.bookmark-icon');
+
+// bookmarkmoviepages.forEach((bookmarkmoviepage) => {
+//   bookmarkmoviepage.addEventListener("click", () => {
+//     console.log('clicked');
+//      bookmarkmoviepage.innerHTML = '<i class="far fa-check-circle"></i>';
+//   });
+// });
+
+
 
 
 

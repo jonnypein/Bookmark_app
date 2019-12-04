@@ -150,7 +150,7 @@
               </div>
               <div id="bookmark-from-friends">
                   <% if @user != current_user && !current_user.bookmarks.where(movie: recommendation.movie).any? %>
-                    <%= link_to ' Add to Bookmarks', movie_bookmarks_path(recommendation), method: :post, :remote => true, class: "add-to-bookmarks" %>
+                    <%= link_to ' Add to Bookmarks', movie_bookmarks_path(recommendation.movie), method: :post, :remote => true, class: "add-to-bookmarks" %>
                     <%= link_to ' Add to Recommendations', movie_recommendations_path(recommendation), method: :post, :remote => true, class: "add-to-recommendations" %>
                   <% end %>
                 </div>

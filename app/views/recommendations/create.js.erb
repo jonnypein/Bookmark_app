@@ -2,3 +2,9 @@ function addNewPost(postHTML) {
   const newPost = document.getElementByClassName('recomendation-card');
   newPosts.insertAdjacentHTML('afterbegin', postHTML);
 };
+
+
+recommendbutton = document.getElementById('recommendbutton-<%= @movie.id %>')
+recommendbutton.innerHTML = 'Recommended';
+
+

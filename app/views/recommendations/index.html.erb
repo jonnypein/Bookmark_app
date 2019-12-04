@@ -12,9 +12,10 @@
 
       <div class="card-text-info d-flex flex-column">
         <h3><%= r.movie.title %></h3>
+
         <p><%= r.movie.storyline %></p>
         <div class="tag-in-line d-flex">
-        <p class="green"><%= r.user.first_name %> has recommended this movie with the tags : </p>
+        <p class="green"> <%=link_to r.user.first_name , user_path(r.user) %>  has recommended this movie with the tags : </p>
 
           <% if r.tags.present? %>
               <% r.tags.each do |tag| %>

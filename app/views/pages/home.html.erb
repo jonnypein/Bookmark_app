@@ -42,20 +42,20 @@
           </button>
         </div>
         <div class="modal-body">
-          <h2><%= movie.title %></h2>
+          <h2><%= movie.title %> - <em><p><%= movie.year %></p></em></h2>
           <p><%= movie.storyline %></p>
-          <p><%= movie.year %></p>
+
         </div>
         <div class="modal-footer footer-modal">
         </div>
         <div class="modal-footer footer-modal">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
-          <span class="recommend-btn modal-reco" id="recommendbutton-<%= movie.id%>">
+          <span class="recommend-btn modal-reco d-flex align-items-center justify-content-center" id="recommendbutton-<%= movie.id%>">
           <% if Recommendation.find_by(movie: movie, user: current_user) %>
-            <p class= "recommend-btn modal-reco" >Recommended</p>
+            <p class= "recommend-btn modal-reco">Recommended</p>
           <% else %>
-            <%= link_to "Recommend", movie_recommendations_path(movie), method: :post, :remote => true, class: "recommend-btn  modal-reco" %></span>
+            <%= link_to "Recommend", movie_recommendations_path(movie), method: :post, :remote => true, class: "modal-reco" %></span>
           <% end %>
           <% if Bookmark.find_by(movie: movie, user: current_user) %>
             <span class="bookmark-icon bookmark-btn"><i class="far fa-check-circle"></i></span>

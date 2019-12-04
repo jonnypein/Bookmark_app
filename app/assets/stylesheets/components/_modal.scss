@@ -12,10 +12,21 @@
   }
 }
 
-.modal-reco{
- color: black!important;
+.modal-reco {
+color: white!important;
+padding: 6px;
+border-radius:8px;
+flex-direction: row;
+align-items: center;
+margin-bottom: 10px;
 
- &:hover{
- border-color: rgba(255,255,255,1);
 }
+
+//  &:hover{
+//  border-color: rgba(255,255,255,1);
+// }
+
+.modal-reco:hover {
+  // background-color: #ab2e67;
+  cursor: pointer;
 }

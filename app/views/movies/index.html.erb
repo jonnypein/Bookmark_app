@@ -20,19 +20,21 @@
         <h2 ><%= movie.title %></h2>
         <p><%= movie.description %></p>
         <p id="storyline-movies"><%= movie.storyline %></p>
-
-
-        <%= link_to "Recommend", movie_recommendations_path(movie), method: :post, class: "recommend-btn" %>
-
-        <%= link_to movie_bookmarks_path(movie), method: :post do %>
-          <span class="bookmark-icon"><i class="fas fa-plus"></i></span>
-        <% end %>
-
-
+         <span class="recommend-btn" id="recommendbutton-<%= movie.id%>">
+          <% if Recommendation.find_by(movie: movie, user: current_user) %>
+            <p class= "recommend-btn" >Recommended</p>
+          <% else %>
+            <%= link_to "Recommend", movie_recommendations_path(movie), method: :post, :remote => true, class: "recommend-btn" %></span>
+          <% end %>
+          <% if Bookmark.find_by(movie: movie, user: current_user) %>
+            <span class="bookmark-icon"><i class="far fa-check-circle"></i></span>
+          <% else %>
+            <%= link_to movie_bookmarks_path(movie), method: :post, :remote => true do %>
+              <span class="bookmark-icon" id="movie-<%= movie.id %>"><i class="fas fa-plus"></i></span>
+            <% end %>
+          <% end %>
       </div>
     </div>
-
-
     <% end %>
   </div>
 

@@ -35,7 +35,7 @@ initSlickCarousel('.carousel', {
   ]
 });
 
-const letsGoInfo = document.querySelector('.lets-go-info');
+let letsGoInfo = document.querySelector('#banner-typed-text');
 if (letsGoInfo) {
   loadDynamicBannerText();
 }

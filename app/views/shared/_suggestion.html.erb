@@ -2,6 +2,7 @@
   <div id="suggestions-box">
     <% movies.each do |movie| %>
         <div class="autocomplete_suggestion d-flex suggestion no-decoration">
+
           <div style="flex: 1; margin-left: 10px; display:flex;">
             <%= image_tag movie.picture_url %>
             <div class="moviesearchinfo d-flex flex-column">

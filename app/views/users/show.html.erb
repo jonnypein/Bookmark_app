@@ -4,13 +4,9 @@
   <!-- profile card -->
   <div id="container_profile_card_my_profile">
     <div id="text_profile_card">
-      <p id="profile_name"><strong><%= @user.first_name %> <%= @user.last_name %></strong></p>
-      <p id="profile_bio"><%= @user.bio %></p>
-      <div class="social">
-        <p class="d-inline">Followers <strong><%= @user.followers_by_type_count('User') %></strong></p>
-        <p class="d-inline">Following <strong><%= @user.all_follows.length %></strong>
-      </div>
-      <div id="follow_or_not">
+    <div class="d-flex flex-row bd-highlight mb-2">
+    <div class="p-2 bd-highlight"><p id="profile_name"><strong><%= @user.first_name %> <%= @user.last_name %></strong></p></div>
+    <div class="p-2 bd-highlight"><div id="follow_or_not">
         <% unless @user == current_user %>
           <% if current_user.following?(@user) %>
             <%= link_to unfollow_user_path(@user), method: :patch do %>
@@ -22,7 +18,17 @@
             <% end %>
           <% end %>
         <% end %>
+        </div>
       </div>
+    </div>
+      <p id="profile_bio"><%= @user.bio.truncate(30) -%></p>
+
+
+      <div class="social">
+        <p class="d-inline">Followers <strong><%= @user.followers_by_type_count('User') %></strong></p>
+        <p class="d-inline">Following <strong><%= @user.all_follows.length %></strong>
+      </div>
+
       <div id='edit_profile_button_new'>
         <% if @user == current_user %>
           <%= link_to edit_user_registration_path do %>
@@ -70,21 +76,29 @@
       <!-- Search Bar -->
         <div id='container_search_border'>
           <div id='search_profile'>
+            <div class="d-flex flex-row bd-highlight mb-3">
             <% if @user == current_user %>
-              <%= form_tag movies_path, method: :get do %>
+             <div class="p-2 bd-highlight"><%= form_tag movies_path, method: :get do %>
                 <%= text_field_tag :query,
                 params[:query], autocomplete: 'off', class: "form-control movielistid",
-                placeholder: "Search for a movie to recommend"%>
-                <div id="button-submit-search-reco"><%= submit_tag " + " %></div>
+
+
+                placeholder: "Search for a movie to recommend"%></div>
+               <div class="p-2 bd-highlight"><div id="button-submit-search-reco"><%= submit_tag " + " %></div></div>
+
               <% end %>
+            </div>
               <div id="suggestions"></div>
             <% else %>
-              <%= form_tag user_path(@user), method: :get do %>
-                <%= text_field_tag :query, params[:query], autocomplete: 'off', class: "form-control",
-                placeholder: "search for a tag"%>
-                <div id="button-submit-search-reco-tag"><%= submit_tag "Search" %></div>
+
+            <div class="d-flex flex-row bd-highlight mb-2">
+              <div class="p-2 bd-highlight"><%= form_tag user_path(@user), method: :get do %>
+                <%= text_field_tag :query, params[:query],autocomplete: 'off', class: "form-control",
+                placeholder: "search for a tag"%></div>
+             <div class="p-2 bd-highlight"><div id="button-submit-search-reco-tag"><%= submit_tag "Search" %></div></div>
               <% end %>
             <% end %>
+            </div>
           </div>
         </div>
     <!-- /Search Bar -->

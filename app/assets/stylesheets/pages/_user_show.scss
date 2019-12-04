@@ -14,11 +14,9 @@
 }
 
 .card-product-profile img {
-  height: 100%;
-  width: 150px;
-  object-fit: cover;
-  margin: 20px;
-  border-radius: 10px;
+    object-fit: cover;
+    margin: 6px;
+    border-radius: 8px;
 }
 
 .card-product-profile h2 {
@@ -49,6 +47,7 @@
 
 #follow {
   margin-top: 40px;
+
 }
 
 .Movie_icone {
@@ -92,18 +91,18 @@
 
 #text_profile_card {
   padding-left: 389px;
+  padding-top: 10px;
 }
 
 #profile_name {
-  padding-top: 25px;
   font-size: 45px;
   line-height: 41px;
+  font-family: 'Bebas Neue', cursi;
+  letter-spacing: 4px;
 }
 
 #profile_bio {
-  padding-top: 25px;
-  margin-right: 100px;
-  font-size: 17px;
+  font-size: 25px;
   color: black;
 }
 
@@ -135,12 +134,11 @@ margin-left: 140px;
 }
 
 #edit_profile_button_new {
-  margin-top: 210px;
+  margin-top: 10px;
 }
 
 #follow_or_not {
-  margin-top: -200px;
-  margin-left: 650px;
+
 }
 
 #follow {
@@ -148,6 +146,8 @@ margin-left: 140px;
   color: white;
   background-color: rgba(0,0,0,0);
   border: 2px solid white;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 
@@ -158,8 +158,6 @@ margin-left: 140px;
   margin: 0 auto;
   border: 1px solid lightgrey;
   border-radius: 15px;
-
-
 }
 
 #container_search {
@@ -195,18 +193,17 @@ margin-left: 140px;
 }
 
 #search_profile {
-  padding: 20px;
+  padding: 14px;
 }
 
 #search_profile .form-control{
   border-radius: 5px;
-  width: 650px;
+  width: 45vw;
 }
 
 
 #button-submit-search-reco {
-  margin-top: -45px;
-  margin-left: 700px;
+
 
   input {
     background-color: white;
@@ -218,8 +215,6 @@ margin-left: 140px;
 }
 
 #button-submit-search-reco-tag {
-  margin-top: -35px;
-  margin-left: 700px;
 
   input {
     background-color: white;
@@ -359,7 +354,6 @@ a:link {
     height: 20px;
     width: 20px;
     padding: 6px;
-
   }
 
   a:hover {
@@ -371,6 +365,7 @@ a:link {
 #remove-tage-icone {
     font-size: 10px;
     margin-top: 0px;
-  }
+}
+
 
 

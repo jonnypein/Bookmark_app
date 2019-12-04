@@ -2,3 +2,6 @@ function addNewBookmark(postHTML) {
   const newPost = document.getElementByClassName('recomendation-card');
   addNewBookmark.insertAdjacentHTML('afterbegin', postHTML);
 };
+
+bookmarkIcon = document.getElementById('movie-<%= @movie.id %>')
+bookmarkIcon.innerHTML = '<i class="far fa-check-circle"></i>';

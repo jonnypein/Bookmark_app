@@ -21,6 +21,7 @@
   border-radius: 25px;
   display: flex;
   height: 334px;
+
   // align-items: flex-start;
 
   h1{
@@ -54,19 +55,22 @@
   position: relative;
   overflow: hidden;
   background: white;
-  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-
+  margin: 20px;
+  border-radius: 10px;
   height: 250px;
-
-  margin: 10px;
   margin-bottom: 12px;
   // margin-right: 100px;
   position: relative;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.03);
+  border-radius: 10px;
+  margin: 10px;
+  border: 1px solid lightgrey;
 
   img {
     width: 130px;
     object-fit: cover;
+    margin: 20px;
+    border-radius: 10px;
   }
 
   h2 {
@@ -75,6 +79,10 @@
     width: 80%;
 
 
+  }
+
+  p{
+    opacity: .7;
   }
   .card-product-infos-movies {
 
@@ -89,7 +97,7 @@
   div.card-product-infos-movies i {
   color: rgb(241, 197, 87);
   padding: 20px;
-  font-size: 2em;
+  font-size: 1em;
   }
 
   .bookmark-icon {
@@ -102,7 +110,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid #f1c557;
+    border: 1px solid #f1c557;
     border-radius: 50%;
     transition: background-color 350ms;
 
@@ -155,11 +163,12 @@
 
 .recommend-btn {
   background-color: transparent;
-  border: 2px solid rgb(241, 197, 87);
+  // border: 1px solid rgb(241, 197, 87);
   border-radius: 21px;
   margin: 5px;
   padding: 6px 16px;
   color: #f1c557;
+  font-weight: lighter;
 
   &:hover {
 

@@ -81,10 +81,6 @@
     width: 80%;
     font-family: 'Bebas Neue', cursive;
     letter-spacing: 2px;
-
-
-
-
   }
 
   p{
@@ -140,7 +136,7 @@
  //      height: 200px;
  //      width: 470px;
  // }
-}
+// }
 
 // .btn-blue {
 //     background-color: #FFDF6D;
@@ -174,7 +170,6 @@
   margin: 5px;
   padding: 6px 16px;
   color: #f1c557;
-
   transition: background-color 350ms;
 
 
@@ -194,7 +189,12 @@
 } }
 
 
+  &:hover {
 
+    color: #f1c557;
+    text-decoration: none;
+  }
+ }
 
 #storyline-movies {
   font-size: 12px;

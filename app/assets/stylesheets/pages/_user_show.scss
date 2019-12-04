@@ -112,7 +112,8 @@
 }
 
 #white_background {
-background: white;
+
+background: rgba(1, 1, 1, 0);
 border-radius: 52px;
 width: 80vw;
 height: 130px;
@@ -368,4 +369,8 @@ a:link {
 }
 
 
+  .navtab{
+    background-color: rgba(1, 1, 1, 0.02);
+    border-color: black;
+  }
 

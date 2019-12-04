@@ -1,4 +1,21 @@
 .modal-head{
-  background-color: #FFC65A;
+  background-color: #fdda7c;
+}
 
+.footer-modal{
+  background-color: #fdda7c;
+}
+
+.info-modal{
+  h2{
+    font-family: 'Bebas Neue', cursive;
+  }
+}
+
+.modal-reco{
+ color: black!important;
+
+ &:hover{
+ border-color: rgba(255,255,255,1);
+}
 }

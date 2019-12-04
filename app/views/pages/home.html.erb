@@ -30,6 +30,7 @@
   </div>
 </div>
 
+
 <% @movies.each do |movie| %>
   <div class="modal fade" id="modal<%= movie.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -42,12 +43,29 @@
         </div>
         <div class="modal-body">
           <h2><%= movie.title %></h2>
-          <p><%= movie.description %></p>
           <p><%= movie.storyline %></p>
+          <p><%= movie.year %></p>
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer footer-modal">
+        </div>
+        <div class="modal-footer footer-modal">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+
+          <span class="recommend-btn modal-reco" id="recommendbutton-<%= movie.id%>">
+          <% if Recommendation.find_by(movie: movie, user: current_user) %>
+            <p class= "recommend-btn modal-reco" >Recommended</p>
+          <% else %>
+            <%= link_to "Recommend", movie_recommendations_path(movie), method: :post, :remote => true, class: "recommend-btn  modal-reco" %></span>
+          <% end %>
+          <% if Bookmark.find_by(movie: movie, user: current_user) %>
+            <span class="bookmark-icon bookmark-btn"><i class="far fa-check-circle"></i></span>
+          <% else %>
+            <%= link_to movie_bookmarks_path(movie), method: :post, :remote => true do %>
+              <span class="bookmark-icon bookmark-btn" id="movie-<%= movie.id %>"><i class="fas fa-plus"></i></span>
+            <% end %>
+          <% end %>
+
+
         </div>
       </div>
     </div>
@@ -55,7 +73,6 @@
 <% end %>
 
 <!-- Modal -->
-
 
 <% if !user_signed_in? %>
   <div class="home-sign-up-box">

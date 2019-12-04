@@ -65,6 +65,8 @@
   border-radius: 10px;
   margin: 10px;
   border: 1px solid lightgrey;
+  position: relative;
+
 
   img {
     width: 130px;
@@ -169,6 +171,12 @@
   padding: 6px 16px;
   color: #f1c557;
   font-weight: lighter;
+  position: absolute;
+  bottom: 10px;
+  right: 36px;
+
+
+
 
   &:hover {
 

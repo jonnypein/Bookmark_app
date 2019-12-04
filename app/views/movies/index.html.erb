@@ -19,13 +19,7 @@
       <div class="card-product-infos-movies">
         <h2 ><%= movie.title %></h2>
         <p><%= movie.description %></p>
-        <p id="storyline-movies"><%= movie.storyline %></p>
-         <span class="recommend-btn" id="recommendbutton-<%= movie.id%>">
-          <% if Recommendation.find_by(movie: movie, user: current_user) %>
-            <p class= "recommend-btn" >Recommended</p>
-          <% else %>
-            <%= link_to "Recommend", movie_recommendations_path(movie), method: :post, :remote => true, class: "recommend-btn" %></span>
-          <% end %>
+        <p id="storyline-movies"><%= movie.storyline.truncate(100) %></p>
           <% if Bookmark.find_by(movie: movie, user: current_user) %>
             <span class="bookmark-icon"><i class="far fa-check-circle"></i></span>
           <% else %>
@@ -34,6 +28,12 @@
             <% end %>
           <% end %>
       </div>
+      <span class="recommend-btn" id="recommendbutton-<%= movie.id%>">
+       <% if Recommendation.find_by(movie: movie, user: current_user) %>
+         <p class= "recommend-btn" >Recommended</p>
+       <% else %>
+         <%= link_to "Recommend", movie_recommendations_path(movie), method: :post, :remote => true, class: "recommend-btn" %></span>
+       <% end %>
     </div>
     <% end %>
   </div>

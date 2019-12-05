@@ -14,12 +14,12 @@ user1.save!
 
 user2 = User.create!(email: "elly@gmail.com", password: "123456", first_name: "Elonore", last_name: "Hebard", bio: 'Parisan, living in London.')
 image2 = URI.open('https://res.cloudinary.com/dtjblav7i/image/upload/v1575564123/1265303_10152411080822203_953762005_o_onzhxl.jpg')
-user2.photo.attach(io: image1, filename: 'elonore.jpg', content_type: 'image/jpg')
+user2.photo.attach(io: image2, filename: 'elonore.jpg', content_type: 'image/jpg')
 user2.save!
 
 user3 = User.create!(email: "kelly@gmail.com", password: "123456", first_name: "Kelly", last_name: "Jeffery", bio: 'Devon girl, killing it with code')
 image3 = URI.open('https://res.cloudinary.com/dtjblav7i/image/upload/v1575564291/kelly_c6mbcg.png')
-user3.photo.attach(io: image1, filename: 'kelly.jpg', content_type: 'image/png')
+user3.photo.attach(io: image3, filename: 'kelly.jpg', content_type: 'image/png')
 user3.save!
 
 def fetch_movie_urls

@@ -1,110 +1,90 @@
 <!--Profile card-->
 <div id="container_master_my_profile">
-
   <!-- profile card -->
   <div id="container_profile_card_my_profile">
     <div id="text_profile_card">
-    <div class="d-flex flex-row bd-highlight mb-2">
-    <div class="p-2 bd-highlight"><p id="profile_name"><strong><%= @user.first_name %> <%= @user.last_name %></strong></p></div>
-    <div class="p-2 bd-highlight"><div id="follow_or_not">
-        <% unless @user == current_user %>
-          <% if current_user.following?(@user) %>
-            <%= link_to unfollow_user_path(@user), method: :patch do %>
-              <button id="follow" class="btn btn-primary">Unfollow</button>
-            <% end %>
-          <% else %>
-            <%= link_to follow_user_path(@user) do %>
-              <button id="follow" class="btn btn-light">Follow</button>
-            <% end %>
-          <% end %>
-        <% end %>
-        </div>
-      </div>
-    </div>
-      <p id="profile_bio"><%= @user.bio.truncate(30) -%></p>
-
-
+      <p id="profile_name"><strong><%= @user.first_name %> <%= @user.last_name %></strong></p>
+      <p id="profile_bio"><%= @user.bio %></p>
       <div class="social">
         <p class="d-inline">Followers <strong><%= @user.followers_by_type_count('User') %></strong></p>
         <p class="d-inline">Following <strong><%= @user.all_follows.length %></strong>
-      </div>
-
-      <div id='edit_profile_button_new'>
-        <% if @user == current_user %>
-          <%= link_to edit_user_registration_path do %>
-            <button type="button" class="btn btn-dark">Edit Profile</button>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-  <div id="white_background">
-  </div>
-  <div id="avatar_profile">
-    <% if @user.photo.attached? %>
-        <%= cl_image_tag @user.photo.key, height: 100, width: 100, crop: :fill %>
-    <% else %>
-      <img class="profile_pic" src="https://pixy.org/download/301929/">
-    <% end %>
-  </div>
-<!--/Profile card-->
-
-
-<!--Buttons tab-->
-  <div class="container_reco">
-  <!--/Buttons tab-->
-
-    <!-- /profile card -->
-
-    <!-- tab -->
-    <div id='container_tabs'>
-      <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item">
-          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Recommendations</a>
-        </li>
-        <% if @user == current_user %>
-        <li class="nav-item">
-          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Bookmarks</a>
-        </li>
-        <% end %>
-      </ul>
-    </div>
-    <!-- /tab -->
-
-    <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-      <!-- Search Bar -->
-        <div id='container_search_border'>
-          <div id='search_profile'>
-            <div class="d-flex flex-row bd-highlight mb-3">
-            <% if @user == current_user %>
-             <div class="p-2 bd-highlight"><%= form_tag movies_path, method: :get do %>
-                <%= text_field_tag :query,
-                params[:query], autocomplete: 'off', class: "form-control movielistid",
-
-
-                placeholder: "Search for a movie to recommend"%></div>
-               <div class="p-2 bd-highlight"><div id="button-submit-search-reco"><%= submit_tag " + " %></div></div>
-
+        </div>
+        <div id="follow_or_not">
+          <% unless @user == current_user %>
+            <% if current_user.following?(@user) %>
+              <%= link_to unfollow_user_path(@user), method: :patch do %>
+                <button id="follow" class="btn btn-primary">Unfollow</button>
               <% end %>
-            </div>
-              <div id="suggestions"></div>
             <% else %>
-
-            <div class="d-flex flex-row bd-highlight mb-2">
-              <div class="p-2 bd-highlight"><%= form_tag user_path(@user), method: :get do %>
-                <%= text_field_tag :query, params[:query],autocomplete: 'off', class: "form-control",
-                placeholder: "search for a tag"%></div>
-             <div class="p-2 bd-highlight"><div id="button-submit-search-reco-tag"><%= submit_tag "Search" %></div></div>
+              <%= link_to follow_user_path(@user) do %>
+                <button id="follow" class="btn btn-light">Follow</button>
               <% end %>
             <% end %>
+          <% end %>
+        </div>
+        <div id='edit_profile_button_new'>
+          <% if @user == current_user %>
+            <%= link_to edit_user_registration_path do %>
+              <button type="button" class="btn btn-dark">Edit Profile</button>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div id="white_background">
+    </div>
+    <div id="avatar_profile">
+      <% if @user.photo.attached? %>
+        <%= cl_image_tag @user.photo.key, height: 100, width: 100, crop: :fill %>
+      <% else %>
+        <img class="profile_pic" src="https://pixy.org/download/301929/">
+      <% end %>
+    </div>
+    <!--/Profile card-->
+    <!--Buttons tab-->
+    <div class="container_reco">
+      <!--/Buttons tab-->
+      <!-- /profile card -->
+      <!-- tab -->
+      <div id='container_tabs'>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Recommendations</a>
+          </li>
+          <% if @user == current_user %>
+            <li class="nav-item">
+              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Bookmarks</a>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <!-- /tab -->
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <!-- Search Bar -->
+          <div id='container_search_border'>
+            <div id='search_profile'>
+              <% if @user == current_user %>
+                <%= form_tag movies_path, method: :get do %>
+                  <%= text_field_tag :query,
+                params[:query], autocomplete: 'off', class: "form-control movielistid",
+                placeholder: "Search for a movie to recommend"%>
+                  <div id="button-submit-search-reco"><%= submit_tag " + " %></div>
+                <% end %>
+                <div id="suggestions"></div>
+              <% else %>
+                <%= form_tag user_path(@user), method: :get do %>
+                  <%= text_field_tag :query, params[:query], class: "form-control",
+                placeholder: "search for a tag"%>
+                  <div id="button-submit-search-reco-tag"><%= submit_tag "Search" %></div>
+                <% end %>
+              <% end %>
             </div>
           </div>
-        </div>
-    <!-- /Search Bar -->
-    <!-- Recos -->
-        <% @recommendations.each do |recommendation| %>
-          <div class="card-product-profile card_<%= recommendation.id %>">
+          <!-- /Search Bar -->
+          <!-- Recos -->
+          <% @recommendations.each do |recommendation| %>
+            <div class="card-product-profile card_<%= recommendation.id %>">
             <img src="<%= recommendation.movie.picture_url%> "/>
             <div class="card-product-infos-profile">
               <h2 id='movie-title-profile' ><%= recommendation.movie.title %></h2>
@@ -134,12 +114,8 @@
                       </div>
                     </div>
                   </div>
-
               <% end %>
-
-
               <div class='d-flex tags_<%= recommendation.id %>'>
-
                 <% recommendation.tags.each do |tag| %>
                   <% if @user == current_user %>
                     <div class='tag_<%= tag.id %>'>
@@ -160,11 +136,9 @@
               <div id="bookmark-from-friends">
                   <% if @user != current_user && !current_user.bookmarks.where(movie: recommendation.movie).any? %>
                     <%= link_to ' Add to Bookmarks', movie_bookmarks_path(recommendation.movie), method: :post, :remote => true, class: "add-to-bookmarks" %>
-                    <%= link_to ' Add to Recommendations', movie_recommendations_path(recommendation.movie), method: :post, :remote => true, class: "add-to-recommendations" %>
+                    <%= link_to ' Add to Recommendations', movie_recommendations_path(recommendation), method: :post, :remote => true, class: "add-to-recommendations" %>
                   <% end %>
                 </div>
-
-
               <!--
               <div class="where-to-watch">
                 <% if recommendation.movie.imdb_url.present? %>
@@ -182,8 +156,6 @@
                   <% end %>
                 <% end %>
                 -->
-
-
             </div>
             <div class="right-info">
               <% if @user == current_user %>
@@ -207,32 +179,26 @@
         <% @user.bookmarks.each do |bookmark| %>
           <div class="card-product-profile card_<%= bookmark.id %>">
             <img src="<%= bookmark.movie.picture_url%> "/>
-            <div class="card-product-infos-profile">
-              <h2 ><%= bookmark.movie.title %></h2>
-              <p><%= bookmark.movie.storyline %></p>
-            </div>
-            <div id="right-info-bookmark">
-              <button id='add_a_tag_delete'><%= link_to "Delete this Bookmark", bookmark_path(bookmark), method: :delete, data: {confirm: "Whatt Why?"}, remote: true %></button>
-              <div id="links">
-                <ul>
-                  <li class="imdb"><a href="https://www.imdb.com/title/tt0095765/?ref_=fn_al_tt_1"><img src="https://res.cloudinary.com/dtjblav7i/image/upload/v1575290384/imdb_fkuqhx.jpg" style='width:50px'></a></li>
-                  <li class="netflix"><a href="https://www.netflix.com/search?q=incep&jbv=70131314&jbp=0&jbr=0"><img src="https://res.cloudinary.com/dtjblav7i/image/upload/v1575290264/netflliw_fwehh5.png" style='width:80px'></a></li>
-                  <li class="amazon"><a href="https://www.amazon.co.uk/Aliens-Lan/dp/B00HNJSU1W/ref=sr_1_1?keywords=aliens&qid=1575294742&s=instant-video&sr=1-1"><img src="https://res.cloudinary.com/dtjblav7i/image/upload/v1575290073/amazon_logo_ffi0fs.png" style='width:100px'></a></li>
-                </ul>
+                <div class="card-product-infos-profile">
+                  <h2 ><%= bookmark.movie.title %></h2>
+                  <p><%= bookmark.movie.storyline %></p>
+                </div>
+                <div id="right-info-bookmark">
+                  <button id='add_a_tag_delete'><%= link_to "Delete this Bookmark", bookmark_path(bookmark), method: :delete, data: {confirm: "Whatt Why?"}, remote: true %></button>
+                  <div id="links">
+                    <ul>
+                      <li class="imdb"><a href="https://www.imdb.com/title/tt0095765/?ref_=fn_al_tt_1"><img src="https://res.cloudinary.com/dtjblav7i/image/upload/v1575290384/imdb_fkuqhx.jpg" style='width:50px'></a></li>
+                      <li class="netflix"><a href="https://www.netflix.com/search?q=incep&jbv=70131314&jbp=0&jbr=0"><img src="https://res.cloudinary.com/dtjblav7i/image/upload/v1575290264/netflliw_fwehh5.png" style='width:80px'></a></li>
+                      <li class="amazon"><a href="https://www.amazon.co.uk/Aliens-Lan/dp/B00HNJSU1W/ref=sr_1_1?keywords=aliens&qid=1575294742&s=instant-video&sr=1-1"><img src="https://res.cloudinary.com/dtjblav7i/image/upload/v1575290073/amazon_logo_ffi0fs.png" style='width:100px'></a></li>
+                    </ul>
+                  </div>
+                </div>
               </div>
-            </div>
+            <% end %>
+            <!--/Bookmarks-->
           </div>
-        <% end %>
-<!--/Bookmarks-->
+          <!--NOTE: closing DIV Container - reco -->
+        </div>
+        <!--NOTE: closing DIV Container - profile -->
       </div>
-<!--NOTE: closing DIV Container - reco -->
     </div>
-
-<!--NOTE: closing DIV Container - profile -->
-  </div>
-</div>
-
-
-
-
-

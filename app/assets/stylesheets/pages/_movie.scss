@@ -174,24 +174,33 @@
   margin: 5px;
   padding: 6px 16px;
   color: #f1c557;
+  font-weight: lighter;
+  position: absolute;
+  bottom: 10px;
+  right: 36px;
+  color: #f1c557;
+  text-decoration: none;
 
-  transition: background-color 350ms;
 
 
 &:hover {
-  background-color: #f1c557;
-  font-weight: 2px;
 
   font-weight: lighter;
   position: absolute;
   bottom: 10px;
   right: 36px;
+  color: #f1c557;
+  text-decoration: none;
+
 
 
 
 
 
 } }
+
+
+
 
 
 

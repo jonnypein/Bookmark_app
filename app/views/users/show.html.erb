@@ -4,7 +4,9 @@
   <div id="container_profile_card_my_profile">
     <div id="text_profile_card">
       <p id="profile_name"><strong><%= @user.first_name %> <%= @user.last_name %></strong></p>
-      <p id="profile_bio"><%= @user.bio.truncate(100) %></p>
+      <% if @user.bio.present? %>
+        <p id="profile_bio"><%= @user.bio.truncate(100) %></p>
+      <% end %>
       <div class="social">
         <p class="d-inline">Followers <strong><%= @user.followers_by_type_count('User') %></strong></p>
         <p class="d-inline">Following <strong><%= @user.all_follows.length %></strong>
@@ -37,7 +39,7 @@
       <% if @user.photo.attached? %>
         <%= cl_image_tag @user.photo.key, height: 100, width: 100, crop: :fill %>
       <% else %>
-        <img class="profile_pic" src="https://pixy.org/download/301929/">
+        <%= image_tag @user.default_image, height: 100, width: 100, crop: :fill  %>
       <% end %>
     </div>
     <!--/Profile card-->

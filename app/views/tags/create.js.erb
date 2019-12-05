@@ -1,3 +1,4 @@
+// import $ from 'jquery';
 function refreshForm(innerHTML) {
   const newTagForm = document.querySelector('tag_name');
   newTagForm.innerHTML = innerHTML;
@@ -17,20 +18,22 @@ function closeOneModal(modalId) {
 
     // get modal
     const modal = document.getElementById(modalId);
-
     // change state like in hidden modal
     modal.classList.remove('show');
     modal.setAttribute('aria-hidden', 'true');
-    modal.setAttribute('style', 'display: none');
+    modal.style.display = 'none';
+    modal.removeAttribute('aria-modal');
+    document.querySelector('body').classList.remove('modal-open');
 
-     // get modal backdrop
-     const modalBackdrops = document.getElementsByClassName('modal-backdrop');
+    // get modal backdrop
+    const modalBackdrops = document.getElementsByClassName('modal-backdrop');
 
-     // remove opened modal backdrop
-      document.body.removeChild(modalBackdrops[0]);
+    // remove opened modal backdrop
+    // document.body.removeChild(modalBackdrops[0]);
+    modalBackdrops[0].remove();
 }
 
 
 newTag = `<div class='tag_<%= @tag.id %>'><div class='tag'><%= @tag.name %></div><p class='text-center'id='remove-tage-icone'><strong><%= link_to ' x ', tag_path(@tag), method: :delete, remote: true, data: {confirm: 'Are you sure you want to delete this tag?'}%></strong></p></div>`
 addTag(newTag);
-closeOneModal("addTagModal_<%= @recommendation.id %>")
+closeOneModal("addTagModal_<%= @recommendation.id %>");

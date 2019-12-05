@@ -38,7 +38,7 @@
     <div id="avatar_profile">
       <% if @user.photo.attached? %>
         <%= cl_image_tag @user.photo.key, height: 100, width: 100, crop: :fill %>
-      <% else %> <!--/@user.default_image-->
+      <% else %>
         <%= image_tag "https://pixy.org/download/301929/",  height: 100, width: 100, crop: :fill  %>
       <% end %>
     </div>

@@ -13,7 +13,7 @@
           <%= cl_image_tag user.photo.key %>
         <% else %>
           <!-- <img src="https://pixy.org/download/301929/" class="friend-card-avatar"> -->
-          <img src="<%= user.default_image %>" class="friend-card-avatar">
+          <%= image_tag "https://pixy.org/download/301929/",  height: 100, width: 100, crop: :fill, class: 'friend-card-avatar'  %>
         <% end %>
       </div>
       <% if current_user.following?(user) %>

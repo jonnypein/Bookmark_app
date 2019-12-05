@@ -2,6 +2,7 @@ class BookmarksController < ApplicationController
   def create
     @movie = Movie.find(params[:movie_id])
     @bookmark = Bookmark.new
+    @page = params[:page]
     @bookmark.movie = @movie
     @bookmark.user = current_user
     if @bookmark.save

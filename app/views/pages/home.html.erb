@@ -1,35 +1,27 @@
 <div class="container pt-4">
-
   <div class="lets-go mb-4">
     <div class="lets-go-info d-flex flex-column align-items-center" >
-
       <h3 style="min-width: 36vw;">
         <span id="banner-typed-text"></span>
       </h3>
-
-
       <%= link_to recommendations_path  :action => 'go' do %>
-      <!-- <div class="lets-go-button">Let's Go</div> -->
+        <!-- <div class="lets-go-button">Let's Go</div> -->
         <div class="my-div">
           <button class="learn-more"><span>Lets go</span></button>
         </div>
       <% end %>
     </div>
-
     <%= cl_image_tag "https://res.cloudinary.com/dtjblav7i/image/upload/v1574955096/illustrations_f9yo5s.svg", class:'lets-go-picture' %>
   </div>
-
   <h4 class="recommended-title">Most recommended movies this month</h4>
   <div class="line-seporater"></div>
-
   <div class="carousel">
     <% @movies.each do |movie| %>
       <%= image_tag movie.picture_url, class:'movie-picture', data: { toggle: 'modal', target: '#modal' + movie.id.to_s} %>
-
     <% end %>
   </div>
 </div>
-
+<!-- modal -->
 <% @movies.each do |movie| %>
   <div class="modal fade" id="modal<%= movie.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -41,27 +33,38 @@
           </button>
         </div>
         <div class="modal-body">
-          <h2><%= movie.title %></h2>
-          <p><%= movie.description %></p>
+          <h2><%= movie.title %> - <em>
+              <p><%= movie.year %></p>
+            </em></h2>
           <p><%= movie.storyline %></p>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+        <div class="modal-footer footer-modal">
         </div>
+        <div class="modal-footer footer-modal d-flex align-items-center">
+          <span class="modal-reco d-flex align-items-center justify-content-center" id="recommendbutton-<%= movie.id%>">
+            <% if Recommendation.find_by(movie: movie, user: current_user) %>
+              <span >Recommended</span>
+            <% else %>
+              <%= link_to "Recommend", movie_recommendations_path(movie), method: :post, :remote => true %></span>
+          <% end %>
+        </span>
+        <% if Bookmark.find_by(movie: movie, user: current_user) %>
+          <span class="modal-reco ">Bookmarked</span>
+        <% else %>
+          <%= link_to movie_bookmarks_path(movie, page: "home"), method: :post, remote: true do %>
+            <span class="modal-reco" id="movie-<%= movie.id %>">Bookmark</span>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
+</div>
 <% end %>
-
 <!-- Modal -->
-
-
 <% if !user_signed_in? %>
   <div class="home-sign-up-box">
     <%= simple_form_for(registration_path(User.new)) do |f| %>
       <%= f.error_notification %>
-
       <div class="home-form-inputs">
         <%= f.input :first_name %>
         <%= f.input :last_name %>
@@ -83,10 +86,7 @@
     <% end %>
   </div>
 <% end %>
-
-
 <div class="three-box-container">
-
   <%= cl_image_tag "https://res.cloudinary.com/dtjblav7i/image/upload/v1575028623/background_fyixao.svg" %>
   <h1>Bookmark</h1>
   <h2>Millions of recommendations from your friends and others</h2>

@@ -4,7 +4,7 @@
   <div id="container_profile_card_my_profile">
     <div id="text_profile_card">
       <p id="profile_name"><strong><%= @user.first_name %> <%= @user.last_name %></strong></p>
-      <p id="profile_bio"><%= @user.bio %></p>
+      <p id="profile_bio"><%= @user.bio.truncate(100) %></p>
       <div class="social">
         <p class="d-inline">Followers <strong><%= @user.followers_by_type_count('User') %></strong></p>
         <p class="d-inline">Following <strong><%= @user.all_follows.length %></strong>
@@ -61,6 +61,7 @@
       <!-- /tab -->
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <!-- Linebreak -->
           <!-- Search Bar -->
           <div id='container_search_border'>
             <div id='search_profile'>
@@ -69,14 +70,12 @@
                   <%= text_field_tag :query,
                 params[:query], autocomplete: 'off', class: "form-control movielistid",
                 placeholder: "Search for a movie to recommend"%>
-                  <div id="button-submit-search-reco"><%= submit_tag " + " %></div>
                 <% end %>
                 <div id="suggestions"></div>
               <% else %>
                 <%= form_tag user_path(@user), method: :get do %>
-                  <%= text_field_tag :query, params[:query], class: "form-control",
+                  <%= text_field_tag :query, params[:query], autocomplete: 'off', class: "form-control",
                 placeholder: "search for a tag"%>
-                  <div id="button-submit-search-reco-tag"><%= submit_tag "Search" %></div>
                 <% end %>
               <% end %>
             </div>
@@ -136,7 +135,7 @@
               <div id="bookmark-from-friends">
                   <% if @user != current_user && !current_user.bookmarks.where(movie: recommendation.movie).any? %>
                     <%= link_to ' Add to Bookmarks', movie_bookmarks_path(recommendation.movie), method: :post, :remote => true, class: "add-to-bookmarks" %>
-                    <%= link_to ' Add to Recommendations', movie_recommendations_path(recommendation), method: :post, :remote => true, class: "add-to-recommendations" %>
+                    <%= link_to ' Add to Recommendations', movie_recommendations_path(recommendation.movie), method: :post, :remote => true, class: "add-to-recommendations" %>
                   <% end %>
                 </div>
               <!--

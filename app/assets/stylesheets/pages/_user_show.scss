@@ -9,10 +9,15 @@
   border: 1px solid lightgrey;
   border-radius: 10px;
   margin: 15px auto;
-  paddinf-top: 10px;
+  padding-top: 10px;
   width: 60vw;
+  padding: 10px;
 }
 
+#text_profile_card{
+  position:relative;
+  padding-top: 33px !important ;
+}
 .card-product-profile img {
     object-fit: cover;
     margin: 6px;
@@ -102,8 +107,9 @@
 }
 
 #profile_bio {
-  font-size: 25px;
-  color: black;
+    font-size: 14px;
+    color: black;
+    padding-top: 8px;
 }
 
 .social {
@@ -112,7 +118,7 @@
 }
 
 #white_background {
-background: white;
+background: #FAFAFA;
 border-radius: 52px;
 width: 80vw;
 height: 130px;
@@ -138,6 +144,9 @@ margin-left: 140px;
 }
 
 #follow_or_not {
+    position: absolute;
+    top: 32px;
+    right: 100px;
 
 }
 
@@ -189,7 +198,6 @@ margin-left: 140px;
 
 .nav-link .tab-underlined.active {
   opacity: 1;
-  border-bottom: 3px solid #555555;
 }
 
 #search_profile {
@@ -199,6 +207,9 @@ margin-left: 140px;
 #search_profile .form-control{
   border-radius: 5px;
   width: 45vw;
+  margin-top: 6px;
+
+
 }
 
 
@@ -264,11 +275,15 @@ margin-left: 140px;
 }
 
 #home-tab {
-  background-color: white;
+  background-color: transparent;
 }
 
 #myTab {
-  border: 1px solid white;
+}
+
+.nav-tabs {
+  border-bottom: transparent !important;
+
 }
 
 .nav-tabs .nav-link {
@@ -276,7 +291,7 @@ margin-left: 140px;
 }
 
 #profile-tab {
-  background-color: white;
+  background-color: transparent;
 }
 
 #add_a_tag_delete  {
@@ -367,5 +382,7 @@ a:link {
     margin-top: 0px;
 }
 
+ .tab-line-seporator{
+  background: linear-gradient(130.62deg, #717070 9.56%, #ffffff 92.35%);}
 
 

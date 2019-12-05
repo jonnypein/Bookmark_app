@@ -3,5 +3,10 @@ function addNewBookmark(postHTML) {
   addNewBookmark.insertAdjacentHTML('afterbegin', postHTML);
 };
 
-bookmarkIcon = document.getElementById('movie-<%= @movie.id %>')
-bookmarkIcon.innerHTML = '<i class="far fa-check-circle"></i>';
+if(@page == "home") {
+  bookmarkIcon = document.getElementById('movie-<%= @movie.id %>')
+  bookmarkIcon.innerHTML = '<span class="modal-reco ">Bookmarked</span>';
+} else {
+  bookmarkIcon = document.getElementById('movie-<%= @movie.id %>')
+  bookmarkIcon.innerHTML = '<i class="far fa-check-circle"></i>';
+}

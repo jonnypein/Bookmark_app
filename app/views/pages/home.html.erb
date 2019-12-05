@@ -24,7 +24,7 @@
 <!-- modal -->
 <% @movies.each do |movie| %>
   <div class="modal fade" id="modal<%= movie.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog " role="document">
       <div class="modal-content info-modal">
         <div class="modal-header modal-head">
           <h5 class="modal-title title-modal" id="exampleModalLabel"></h5>
@@ -33,10 +33,17 @@
           </button>
         </div>
         <div class="modal-body">
-          <h2><%= movie.title %> - <em>
-              <p><%= movie.year %></p>
-            </em></h2>
+          <h2><%= movie.title %> - <em><%= movie.year %></em></h2>
           <p><%= movie.storyline %></p>
+
+
+          <div class="d-flex">
+
+          <a class="imdb mr-4" href="https://www.imdb.com/title/tt0095765/?ref_=fn_al_tt_1"><img src="https://res.cloudinary.com/dtjblav7i/image/upload/v1575290384/imdb_fkuqhx.jpg" style='width:50px'></a>
+          <a class="netflix" href="https://www.netflix.com/search?q=incep&jbv=70131314&jbp=0&jbr=0"><img src="https://res.cloudinary.com/dtjblav7i/image/upload/v1575290264/netflliw_fwehh5.png" style='width:80px'></a>
+          <a class="amazon mr-1" href="https://www.amazon.co.uk/Aliens-Lan/dp/B00HNJSU1W/ref=sr_1_1?keywords=aliens&qid=1575294742&s=instant-video&sr=1-1"><img src="https://res.cloudinary.com/dtjblav7i/image/upload/v1575290073/amazon_logo_ffi0fs.png" style='width:100px'></a>
+        </div>
+
         </div>
         <div class="modal-footer footer-modal">
         </div>

@@ -107,10 +107,12 @@ body {
 }
 
 .modal-head{
-  background-color: #fdda7c;
+  background-color: #F36B7F;
 }
 .footer-modal{
-  background-color: #fdda7c;
+  background-color: #82B6A5;
+
+
 }
 .info-modal{
   h2{
@@ -125,7 +127,7 @@ flex-direction: row;
 align-items: center;
 
 margin-right: 27px;
-background-color: grey;
+background-color: #F9D266;
 a {
   color: white!important;
 }
@@ -143,3 +145,38 @@ a {
   color: black;
 
 }
+
+.tag-header{
+  background-color: #F36B7F;
+}
+
+
+.tag-footer{
+  background-color: #82B6A5;
+
+}
+
+.tag-btn{
+
+  background-color: #F9D266;
+}
+
+.tag-title{
+
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 2px;
+
+}
+
+.tag-body {
+
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 2px;
+
+}
+
+
+
+
+
+

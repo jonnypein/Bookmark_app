@@ -13,18 +13,25 @@
       <% end %>
       <div class="card-text-info d-flex flex-column">
         <h3><%= r.movie.title %></h3>
-        <p><%= r.movie.storyline %></p>
+        <p><%= r.movie.storyline.truncate(200) %></p>
         <div class="tag-in-line d-flex">
           <% if r.tags.present? %>
             <p class="green"> <strong><%=link_to r.user.first_name , user_path(r.user) %></strong>  has recommended this movie with the tags : </p>
-          <% else %>
-            <p class="green"> <strong><%=link_to r.user.first_name , user_path(r.user) %></strong>  has recommended this movie</p>
             <% r.tags.each do |tag| %>
               <div class="tag-card"><%= tag.name.downcase.capitalize %></div>
             <% end %>
+          <% else %>
+            <p class="green"> <strong><%=link_to r.user.first_name , user_path(r.user) %></strong>  has recommended this movie</p>
+
           <% end %>
         </div>
       </div>
     </div>
   <% end %>
 </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+

@@ -4,7 +4,7 @@
   <div class="recommendations-title-box d-flex align-items-center">
     <h2>Latest Recommendations by people you follow</h2>
   </div>
-  <% @recommendations.each do |r| %>
+  <% @recommendations.shuffle.each do |r| %>
     <div class="recomendation-card d-flex align-items-center">
       <% if r.user.photo.attached? %>
         <%= cl_image_tag r.user.photo.key %>
@@ -15,8 +15,10 @@
         <h3><%= r.movie.title %></h3>
         <p><%= r.movie.storyline %></p>
         <div class="tag-in-line d-flex">
-          <p class="green"> <strong><%=link_to r.user.first_name , user_path(r.user) %></strong>  has recommended this movie with the tags : </p>
           <% if r.tags.present? %>
+            <p class="green"> <strong><%=link_to r.user.first_name , user_path(r.user) %></strong>  has recommended this movie with the tags : </p>
+          <% else %>
+            <p class="green"> <strong><%=link_to r.user.first_name , user_path(r.user) %></strong>  has recommended this movie</p>
             <% r.tags.each do |tag| %>
               <div class="tag-card"><%= tag.name.downcase.capitalize %></div>
             <% end %>

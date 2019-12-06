@@ -83,8 +83,6 @@ urls = [
   'https://images.unsplash.com/photo-1470406852800-b97e5d92e2aa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80',
 ]
 puts 'creating users'
-count = 0
-[]
 10.times do |i|
   u = User.create!({
     first_name: Faker::Name.first_name ,
@@ -94,7 +92,7 @@ count = 0
     bio: Faker::Quote.matz,
   })
   file = URI.open(urls[i])
-  u.photo.attach(io: file, filename: 'some-image.jpg', content_type: 'image/jpg')
+  u.photo.attach(io: file, filename: "#{u.first_name}.jpg", content_type: 'image/jpg')
   # Here we write article.photo.attach(...) because we wrote has_one_attached :photo in app/models article.rb
   u.save
 
@@ -105,7 +103,6 @@ count = 0
   5.times{
     Bookmark.create!(user: u, movie: Movie.all.sample)
   }
-  count += 1
 end
 # users = User.all
 # puts 'creating followers'

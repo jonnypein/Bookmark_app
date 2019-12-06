@@ -7,7 +7,7 @@
 <br>
 <div class="container">
   <% @users.each do |user| %>
-    <div class="friend-card d-flex justify-content-between">
+    <div class="friend-card d-flex ">
       <div class="friend-card-avatar">
         <% if user.photo.attached? %>
           <%= cl_image_tag user.photo.key %>
@@ -33,7 +33,10 @@
         <%= link_to user_path(user) do %>
           <h1><%= user.first_name&.capitalize %> <%= user.last_name&.capitalize %> </h1>
         <% end %>
-        <p>Bio: is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout</p>
+        <!-- <p>Bio: is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout</p> -->
+        <% if user.bio %>
+          <p><%= user.bio.truncate(100) %></p>
+        <% end %>
       </div>
     </div>
   <% end %>
